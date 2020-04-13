@@ -1,0 +1,12 @@
+C:\Projects\LOM 2\LOM\LOM\bin\Debug\LOM.exe.config
+C:\Projects\LOM 2\LOM\LOM\bin\Debug\LOM.exe
+C:\Projects\LOM 2\LOM\LOM\bin\Debug\LOM.pdb
+C:\Projects\LOM 2\LOM\LOM\obj\Debug\LOM.csprojAssemblyReference.cache
+C:\Projects\LOM 2\LOM\LOM\obj\Debug\LOM.exe
+C:\Projects\LOM 2\LOM\LOM\obj\Debug\LOM.pdb
+C:\Projects\LOM 2\LOM\LOM\bin\Debug\INIFileParser.dll
+C:\Projects\LOM 2\LOM\LOM\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\LOM 2\LOM\LOM\bin\Debug\INIFileParser.xml
+C:\Projects\LOM 2\LOM\LOM\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\LOM 2\LOM\LOM\obj\Debug\LOM.csproj.CopyComplete
+C:\Projects\LOM 2\LOM\LOM\bin\Debug\IziLog.dll

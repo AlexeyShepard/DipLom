@@ -263,5 +263,6 @@ namespace LomConfig
         {
             Process.Start("explorer.exe", Configuration.DefaultDirectoryPath);
         }
+
     }
 }

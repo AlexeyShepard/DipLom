@@ -46,6 +46,12 @@
             this.SaveConfBtn = new System.Windows.Forms.Button();
             this.CheckConnectionTbx = new System.Windows.Forms.Button();
             this.OpenFolderBtn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.SaveSettingStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // UrlRestTbx
@@ -178,7 +184,7 @@
             // ParentOrgCbx
             // 
             this.ParentOrgCbx.FormattingEnabled = true;
-            this.ParentOrgCbx.Location = new System.Drawing.Point(12, 482);
+            this.ParentOrgCbx.Location = new System.Drawing.Point(12, 491);
             this.ParentOrgCbx.Name = "ParentOrgCbx";
             this.ParentOrgCbx.Size = new System.Drawing.Size(794, 28);
             this.ParentOrgCbx.TabIndex = 14;
@@ -196,9 +202,9 @@
             // 
             // CheckConnectionTbx
             // 
-            this.CheckConnectionTbx.Location = new System.Drawing.Point(286, 536);
+            this.CheckConnectionTbx.Location = new System.Drawing.Point(822, 114);
             this.CheckConnectionTbx.Name = "CheckConnectionTbx";
-            this.CheckConnectionTbx.Size = new System.Drawing.Size(231, 45);
+            this.CheckConnectionTbx.Size = new System.Drawing.Size(244, 45);
             this.CheckConnectionTbx.TabIndex = 16;
             this.CheckConnectionTbx.Text = "Проверить соединение";
             this.CheckConnectionTbx.UseVisualStyleBackColor = true;
@@ -210,15 +216,57 @@
             this.OpenFolderBtn.Name = "OpenFolderBtn";
             this.OpenFolderBtn.Size = new System.Drawing.Size(231, 45);
             this.OpenFolderBtn.TabIndex = 17;
-            this.OpenFolderBtn.Text = "Открыть папку";
+            this.OpenFolderBtn.Text = "Открыть настройки";
             this.OpenFolderBtn.UseVisualStyleBackColor = true;
             this.OpenFolderBtn.Click += new System.EventHandler(this.OpenFolderBtn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 468);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(340, 20);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Организация для добавления сотрудников";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2,
+            this.SaveSettingStatus});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 582);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1078, 32);
+            this.statusStrip1.TabIndex = 19;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(127, 25);
+            this.toolStripStatusLabel1.Text = "www.artonit.ru";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(191, 25);
+            this.toolStripStatusLabel2.Text = "(Версия сборки и год)";
+            // 
+            // SaveSettingStatus
+            // 
+            this.SaveSettingStatus.Name = "SaveSettingStatus";
+            this.SaveSettingStatus.Size = new System.Drawing.Size(205, 25);
+            this.SaveSettingStatus.Text = "(состояние сохранения)";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 594);
+            this.ClientSize = new System.Drawing.Size(1078, 614);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.OpenFolderBtn);
             this.Controls.Add(this.CheckConnectionTbx);
             this.Controls.Add(this.SaveConfBtn);
@@ -237,10 +285,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UrlRestLbl);
             this.Controls.Add(this.UrlRestTbx);
-            this.MaximumSize = new System.Drawing.Size(840, 650);
-            this.MinimumSize = new System.Drawing.Size(840, 650);
+            this.MaximumSize = new System.Drawing.Size(1100, 670);
+            this.MinimumSize = new System.Drawing.Size(1100, 670);
             this.Name = "Form1";
             this.Text = "LomConfig";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,6 +316,11 @@
         private System.Windows.Forms.Button SaveConfBtn;
         private System.Windows.Forms.Button CheckConnectionTbx;
         private System.Windows.Forms.Button OpenFolderBtn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel SaveSettingStatus;
     }
 }
 

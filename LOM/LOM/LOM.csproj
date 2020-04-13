@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\LoadCommand.cs" />
     <Compile Include="Commands\PinCommand.cs" />
     <Compile Include="Commands\SilentCommand.cs" />

@@ -23,12 +23,13 @@ namespace LOM
                 else GetConfigurationFromFile();
 
                 string Mode = GetApplicationMode(args);
+                string KeyString = args[0].ToLower();
 
-                ExecuteApplication(args[0]);
+                ExecuteApplication(KeyString);
 
                 string Name = Process.GetCurrentProcess().ProcessName;
 
-                Command CurrentCommand = GetCommandObject(args[0]);
+                Command CurrentCommand = GetCommandObject(KeyString);
 
                 CurrentCommand.Run();
 
@@ -48,7 +49,7 @@ namespace LOM
             {
                 case 0:
                     {
-                        Console.WriteLine("/silent - запуск программы в штатном режиме\n/pin - генерация пин-кодв\n/load - Выгрузка базы данных\n/stop - остановка LOM");
+                        Console.WriteLine("/help - вызов справки\n/silent - запуск программы в штатном режиме\n/pin - генерация пин-кодв\n/load - Выгрузка базы данных\n/stop - остановка LOM");
                         throw new Exception("Программа запущена без использования ключей, остановка программы");
                         break;
                     }
@@ -114,6 +115,7 @@ namespace LOM
             {
                 string contains = "[Main]\n" +
                     "UrlREST = " + Configuration.RESTUrl + "\n" +
+                    "FileRotation = " + Configuration.FileRotation + "\n" +
                     "ScudConnectionString = " + Configuration.ScudConnectionString + "\n" +
                     "TimeGenerationPincode = " + FromArrayToString(Configuration.TimeGenerationPinCode) + "\n" +
                     "TimeUpdateDatabase = " + FromArrayToString(Configuration.TimeUpdateDatabase) + "\n" +
@@ -135,6 +137,7 @@ namespace LOM
             IniData IniData = IniParser.ReadFile(Configuration.DefaultDirectoryPathToIni);
 
             Configuration.RESTUrl = IniData["Main"]["UrlREST"];
+            Configuration.FileRotation = IniData["Main"]["FileRotation"];
             Configuration.ScudConnectionString = IniData["Main"]["ScudConnectionString"];
             Configuration.TimeGenerationPinCode = FromStringToArray(IniData["Main"]["TimeGenerationPincode"]);
             Configuration.TimeUpdateDatabase = FromStringToArray(IniData["Main"]["TimeUpdateDatabase"]);

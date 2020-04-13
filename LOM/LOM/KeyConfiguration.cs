@@ -11,6 +11,7 @@ namespace LOM
         public static Command[] List = new Command[] { new SilentCommand(),
                                                        new PinCommand(),
                                                        new LoadCommand(),
-                                                       new StopCommand()};
+                                                       new StopCommand(),
+                                                       new HelpCommand()};
     }
 }

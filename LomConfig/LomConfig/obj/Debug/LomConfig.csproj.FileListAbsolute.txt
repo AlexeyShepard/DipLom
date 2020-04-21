@@ -11,3 +11,17 @@ C:\Projects\LOM 2\LomConfig\LomConfig\obj\Debug\LomConfig.csproj.GenerateResourc
 C:\Projects\LOM 2\LomConfig\LomConfig\obj\Debug\LomConfig.csproj.CopyComplete
 C:\Projects\LOM 2\LomConfig\LomConfig\obj\Debug\LomConfig.exe
 C:\Projects\LOM 2\LomConfig\LomConfig\obj\Debug\LomConfig.pdb
+C:\Projects\DipLom\LomConfig\LomConfig\bin\Debug\LomConfig.exe.config
+C:\Projects\DipLom\LomConfig\LomConfig\bin\Debug\LomConfig.exe
+C:\Projects\DipLom\LomConfig\LomConfig\bin\Debug\LomConfig.pdb
+C:\Projects\DipLom\LomConfig\LomConfig\bin\Debug\INIFileParser.dll
+C:\Projects\DipLom\LomConfig\LomConfig\bin\Debug\IziLog.dll
+C:\Projects\DipLom\LomConfig\LomConfig\bin\Debug\INIFileParser.xml
+C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.csprojAssemblyReference.cache
+C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.Form1.resources
+C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.Properties.Resources.resources
+C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.csproj.GenerateResource.cache
+C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.csproj.CopyComplete
+C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.exe
+C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.pdb
+C:\Projects\DipLom\LomConfig\LomConfig\bin\Debug\IziLog.pdb

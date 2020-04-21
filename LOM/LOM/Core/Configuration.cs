@@ -29,7 +29,7 @@ namespace LOM
 
         public static void SetLogFileNewName()
         {
-            DefaultDirectoryPathToLog = "C:\\ProgramData\\LOM\\Log_" + DateTime.Now.ToString("dd.MM.yyyy") + ".txt";
+            DefaultDirectoryPathToLog = "C:\\ProgramData\\LOM\\Lom_" + DateTime.Now.ToString("yyyy-MM-dd") + ".log";
         }
     }
 }

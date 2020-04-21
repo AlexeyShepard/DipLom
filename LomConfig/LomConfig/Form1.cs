@@ -8,16 +8,20 @@ using IziLog.Records;
 using System.Data.Odbc;
 using System;
 using System.Diagnostics;
+using System.Net.Http;
 
 namespace LomConfig
 {
     public partial class Form1 : Form
     {
+        private static string RestMethodToGetPeopleId = "peoples";
+
         public Form1()
         {
             InitializeComponent();
            
             IziLog.Configuration.PathToLogFile = Configuration.DefaultDirectoryPathToLog;
+            IziLog.Configuration.FileRotation = Convert.ToInt32(Configuration.FileRotation);
 
             Configuration.SetLogFileNewName();
 
@@ -43,6 +47,7 @@ namespace LomConfig
             {
                 string contains = "[Main]\n" +
                     "UrlREST = " + Configuration.RESTUrl + "\n" +
+                    "FileRotation = " + Configuration.FileRotation + "\n" +
                     "ScudConnectionString = " + Configuration.ScudConnectionString + "\n" +
                     "TimeGenerationPincode = " + FromArrayToString(Configuration.TimeGenerationPinCode) + "\n" +
                     "TimeUpdateDatabase = " + FromArrayToString(Configuration.TimeUpdateDatabase) + "\n" +
@@ -64,6 +69,7 @@ namespace LomConfig
             IniData IniData = IniParser.ReadFile(Configuration.DefaultDirectoryPathToIni);
 
             Configuration.RESTUrl = IniData["Main"]["UrlREST"];
+            Configuration.FileRotation = IniData["Main"]["FileRotation"];
             Configuration.ScudConnectionString = IniData["Main"]["ScudConnectionString"];
             Configuration.TimeGenerationPinCode = FromStringToArray(IniData["Main"]["TimeGenerationPincode"]);
             Configuration.TimeUpdateDatabase = FromStringToArray(IniData["Main"]["TimeUpdateDatabase"]);
@@ -79,6 +85,8 @@ namespace LomConfig
         {
             UrlRestTbx.Text = Configuration.RESTUrl;
             CkydConnTxb.Text = Configuration.ScudConnectionString;
+
+            FileRotationUpD.Value = Convert.ToInt32(Configuration.FileRotation);
 
             foreach (string time in Configuration.TimeGenerationPinCode) PinGenTimeTableLbx.Items.Add(time);
 
@@ -200,6 +208,8 @@ namespace LomConfig
                 Configuration.RESTUrl = UrlRestTbx.Text;
                 Configuration.ScudConnectionString = CkydConnTxb.Text;
 
+                Configuration.FileRotation = FileRotationUpD.Value.ToString();
+
                 string[] cash = new string[PinGenTimeTableLbx.Items.Count];
                 PinGenTimeTableLbx.Items.CopyTo(cash, 0);
                 Configuration.TimeGenerationPinCode = cash;
@@ -215,6 +225,7 @@ namespace LomConfig
                 Configuration.ParentOrg = SelectedOrdChars[0].ToString();
 
                 IniData["Main"]["UrlREST"] = Configuration.RESTUrl;
+                IniData["Main"]["FileRotation"] = Configuration.FileRotation;
                 IniData["Main"]["ScudConnectionString"] = Configuration.ScudConnectionString;
                 IniData["Main"]["TimeGenerationPincode"] = FromArrayToString(Configuration.TimeGenerationPinCode);
                 IniData["Main"]["TimeUpdateDatabase"] = FromArrayToString(Configuration.TimeUpdateDatabase);
@@ -248,13 +259,35 @@ namespace LomConfig
                 }
 
                 Logger.Log(new InfoRecord("Проверка подключения к базе данных СКУД прошло успешно"));
-                MessageBox.Show("Подключние успешно установлено!");
+                MessageBox.Show("Статус: ОК\nОписание: Подключние успешно установлено!", "Проверка соединения со СКУД");
             }
             catch (Exception ex)
             {
                 Logger.Log(new ErrorRecord("Проверка подключения к базе данных СКУД прошло с ошибкой " + ex.Message));
-                MessageBox.Show("Произошёл сбой в подключение!");
+                MessageBox.Show("Статус: Ошибка\nОписание: Произошёл сбой в подключение! " + ex.Message, "Проверка соединения со СКУД");
             }        
+        }
+
+        private async void CheckConnectionRestBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string JsonContent;
+
+                using (HttpClient Client = new HttpClient())
+                {
+                    HttpResponseMessage response = await Client.GetAsync(Configuration.RESTUrl + RestMethodToGetPeopleId);
+                    JsonContent = await response.Content.ReadAsStringAsync();
+                }
+
+                Logger.Log(new InfoRecord("Проверка подключения c REST прошло успешно"));
+                MessageBox.Show("Статус: ОК\nОписание: Подключние успешно установлено!", "Проверка соединения с REST");
+            }
+            catch(Exception ex)
+            {
+                Logger.Log(new ErrorRecord("Проверка подключения c REST прошло с ошибкой " + ex.Message));
+                MessageBox.Show("Статус: Ошибка\nОписание: Произошёл сбой в подключение! " + ex.Message, "Проверка соединения с Rest");
+            }
         }
 
         #endregion
@@ -262,7 +295,6 @@ namespace LomConfig
         private void OpenFolderBtn_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", Configuration.DefaultDirectoryPath);
-        }
-
+        }       
     }
 }

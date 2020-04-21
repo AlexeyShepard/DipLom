@@ -12,6 +12,7 @@ namespace LomConfig
                                                     "DataBase=localhost:C:\\Program Files (x86)\\Cardsoft\\DuoSE\\access\\ShieldPro.gdb;" +
                                                     "Uid=sysdba;" +
                                                     "Pwd=temp;";
+        public static string FileRotation = "14";
 
         public static string[] TimeGenerationPinCode = new string[] {"12:00", "13:00"};
 
@@ -21,13 +22,13 @@ namespace LomConfig
 
         public static string DefaultDirectoryPathToIni = "C:\\ProgramData\\LOM\\LOM.ini";
 
-        public static string DefaultDirectoryPathToLog = "C:\\ProgramData\\LOM\\Log_" + DateTime.Now.ToString("dd.MM.yyyy") + ".txt";
+        public static string DefaultDirectoryPathToLog = "C:\\ProgramData\\LOM\\Lom_" + DateTime.Now.ToString("yyyy-MM-dd") + ".log";
 
         public static string ParentOrg = "1";
 
         public static void SetLogFileNewName()
         {
-            DefaultDirectoryPathToLog = "C:\\ProgramData\\LOM\\Log_" + DateTime.Now.ToString("dd.MM.yyyy") + ".txt";
+            DefaultDirectoryPathToLog = "C:\\ProgramData\\LOM\\Lom_" + DateTime.Now.ToString("yyyy-MM-dd") + ".log";
         }
     }
 }

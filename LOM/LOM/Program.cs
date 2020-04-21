@@ -16,6 +16,7 @@ namespace LOM
             try
             {
                 IziLog.Configuration.PathToLogFile = Configuration.DefaultDirectoryPathToLog;
+                IziLog.Configuration.FileRotation = Convert.ToInt32(Configuration.FileRotation);
 
                 LoggerServer.Start();
                 

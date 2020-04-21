@@ -118,6 +118,7 @@ namespace LOM
                     "UrlREST = " + Configuration.RESTUrl + "\n" +
                     "FileRotation = " + Configuration.FileRotation + "\n" +
                     "ScudConnectionString = " + Configuration.ScudConnectionString + "\n" +
+                    "AdminPanelUrl = " + Configuration.AdminPanelUrl + "\n" +
                     "TimeGenerationPincode = " + FromArrayToString(Configuration.TimeGenerationPinCode) + "\n" +
                     "TimeUpdateDatabase = " + FromArrayToString(Configuration.TimeUpdateDatabase) + "\n" +
                     "ParentOrg = " + Configuration.ParentOrg;
@@ -140,6 +141,7 @@ namespace LOM
             Configuration.RESTUrl = IniData["Main"]["UrlREST"];
             Configuration.FileRotation = IniData["Main"]["FileRotation"];
             Configuration.ScudConnectionString = IniData["Main"]["ScudConnectionString"];
+            Configuration.AdminPanelUrl = IniData["Main"]["AdminPanelUrl"];
             Configuration.TimeGenerationPinCode = FromStringToArray(IniData["Main"]["TimeGenerationPincode"]);
             Configuration.TimeUpdateDatabase = FromStringToArray(IniData["Main"]["TimeUpdateDatabase"]);
             Configuration.ParentOrg = IniData["Main"]["ParentOrg"];

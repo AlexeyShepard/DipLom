@@ -13,6 +13,8 @@ namespace LOM
                                                     "Uid=sysdba;" +
                                                     "Pwd=temp;";
 
+        public static string AdminPanelUrl = "http://lomadmin.isp.regruhosting.ru/admin";
+
         public static string FileRotation = "14";
         
         public static string[] TimeGenerationPinCode = new string[] {"12:00", "13:00"};

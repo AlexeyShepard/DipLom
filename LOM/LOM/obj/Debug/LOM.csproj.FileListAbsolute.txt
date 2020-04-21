@@ -22,3 +22,4 @@ C:\Projects\DipLom\LOM\LOM\obj\Debug\LOM.csprojAssemblyReference.cache
 C:\Projects\DipLom\LOM\LOM\obj\Debug\LOM.csproj.CopyComplete
 C:\Projects\DipLom\LOM\LOM\obj\Debug\LOM.exe
 C:\Projects\DipLom\LOM\LOM\obj\Debug\LOM.pdb
+C:\Projects\DipLom\LOM\LOM\bin\Debug\IziLog.pdb

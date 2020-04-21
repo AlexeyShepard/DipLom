@@ -54,21 +54,30 @@
             this.CheckConnectionRestBtn = new System.Windows.Forms.Button();
             this.FileRotationUpD = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.UrlAdminPanelTbx = new System.Windows.Forms.TextBox();
+            this.OpenAdminPanelBtn = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpMenuBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutMenuBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FileRotationUpD)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // UrlRestTbx
             // 
-            this.UrlRestTbx.Location = new System.Drawing.Point(12, 32);
+            this.UrlRestTbx.Location = new System.Drawing.Point(12, 77);
             this.UrlRestTbx.Name = "UrlRestTbx";
             this.UrlRestTbx.Size = new System.Drawing.Size(794, 26);
             this.UrlRestTbx.TabIndex = 0;
+            this.UrlRestTbx.TextChanged += new System.EventHandler(this.UrlRestTbx_TextChanged);
             // 
             // UrlRestLbl
             // 
             this.UrlRestLbl.AutoSize = true;
-            this.UrlRestLbl.Location = new System.Drawing.Point(12, 9);
+            this.UrlRestLbl.Location = new System.Drawing.Point(12, 54);
             this.UrlRestLbl.Name = "UrlRestLbl";
             this.UrlRestLbl.Size = new System.Drawing.Size(67, 20);
             this.UrlRestLbl.TabIndex = 1;
@@ -77,7 +86,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 75);
+            this.label1.Location = new System.Drawing.Point(12, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 20);
             this.label1.TabIndex = 2;
@@ -85,17 +94,18 @@
             // 
             // CkydConnTxb
             // 
-            this.CkydConnTxb.Location = new System.Drawing.Point(12, 98);
+            this.CkydConnTxb.Location = new System.Drawing.Point(12, 143);
             this.CkydConnTxb.Multiline = true;
             this.CkydConnTxb.Name = "CkydConnTxb";
             this.CkydConnTxb.Size = new System.Drawing.Size(794, 74);
             this.CkydConnTxb.TabIndex = 3;
+            this.CkydConnTxb.TextChanged += new System.EventHandler(this.CkydConnTxb_TextChanged);
             // 
             // PinGenTimeTableLbx
             // 
             this.PinGenTimeTableLbx.FormattingEnabled = true;
             this.PinGenTimeTableLbx.ItemHeight = 20;
-            this.PinGenTimeTableLbx.Location = new System.Drawing.Point(16, 291);
+            this.PinGenTimeTableLbx.Location = new System.Drawing.Point(16, 406);
             this.PinGenTimeTableLbx.Name = "PinGenTimeTableLbx";
             this.PinGenTimeTableLbx.Size = new System.Drawing.Size(378, 204);
             this.PinGenTimeTableLbx.TabIndex = 4;
@@ -103,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 268);
+            this.label2.Location = new System.Drawing.Point(12, 383);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(258, 20);
             this.label2.TabIndex = 5;
@@ -113,7 +123,7 @@
             // 
             this.DBUpdateTimeTableLbx.FormattingEnabled = true;
             this.DBUpdateTimeTableLbx.ItemHeight = 20;
-            this.DBUpdateTimeTableLbx.Location = new System.Drawing.Point(413, 291);
+            this.DBUpdateTimeTableLbx.Location = new System.Drawing.Point(413, 406);
             this.DBUpdateTimeTableLbx.Name = "DBUpdateTimeTableLbx";
             this.DBUpdateTimeTableLbx.Size = new System.Drawing.Size(393, 204);
             this.DBUpdateTimeTableLbx.TabIndex = 6;
@@ -121,7 +131,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(409, 268);
+            this.label3.Location = new System.Drawing.Point(409, 383);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(294, 20);
             this.label3.TabIndex = 7;
@@ -129,7 +139,7 @@
             // 
             // AddPinCodeGenTimeBtn
             // 
-            this.AddPinCodeGenTimeBtn.Location = new System.Drawing.Point(185, 501);
+            this.AddPinCodeGenTimeBtn.Location = new System.Drawing.Point(185, 616);
             this.AddPinCodeGenTimeBtn.Name = "AddPinCodeGenTimeBtn";
             this.AddPinCodeGenTimeBtn.Size = new System.Drawing.Size(108, 41);
             this.AddPinCodeGenTimeBtn.TabIndex = 8;
@@ -139,7 +149,7 @@
             // 
             // DeletePinCodeGenTimeBtn
             // 
-            this.DeletePinCodeGenTimeBtn.Location = new System.Drawing.Point(299, 501);
+            this.DeletePinCodeGenTimeBtn.Location = new System.Drawing.Point(299, 616);
             this.DeletePinCodeGenTimeBtn.Name = "DeletePinCodeGenTimeBtn";
             this.DeletePinCodeGenTimeBtn.Size = new System.Drawing.Size(95, 41);
             this.DeletePinCodeGenTimeBtn.TabIndex = 9;
@@ -149,7 +159,7 @@
             // 
             // AddDBUpdateTimeBtn
             // 
-            this.AddDBUpdateTimeBtn.Location = new System.Drawing.Point(577, 501);
+            this.AddDBUpdateTimeBtn.Location = new System.Drawing.Point(577, 616);
             this.AddDBUpdateTimeBtn.Name = "AddDBUpdateTimeBtn";
             this.AddDBUpdateTimeBtn.Size = new System.Drawing.Size(111, 41);
             this.AddDBUpdateTimeBtn.TabIndex = 10;
@@ -159,7 +169,7 @@
             // 
             // DeleteDBUpdateTimeBtn
             // 
-            this.DeleteDBUpdateTimeBtn.Location = new System.Drawing.Point(694, 501);
+            this.DeleteDBUpdateTimeBtn.Location = new System.Drawing.Point(694, 616);
             this.DeleteDBUpdateTimeBtn.Name = "DeleteDBUpdateTimeBtn";
             this.DeleteDBUpdateTimeBtn.Size = new System.Drawing.Size(112, 41);
             this.DeleteDBUpdateTimeBtn.TabIndex = 11;
@@ -169,7 +179,7 @@
             // 
             // PinGenMTbx
             // 
-            this.PinGenMTbx.Location = new System.Drawing.Point(12, 508);
+            this.PinGenMTbx.Location = new System.Drawing.Point(12, 623);
             this.PinGenMTbx.Mask = "00:00";
             this.PinGenMTbx.Name = "PinGenMTbx";
             this.PinGenMTbx.Size = new System.Drawing.Size(167, 26);
@@ -178,7 +188,7 @@
             // 
             // DBUpdaterMTbx
             // 
-            this.DBUpdaterMTbx.Location = new System.Drawing.Point(407, 508);
+            this.DBUpdaterMTbx.Location = new System.Drawing.Point(407, 623);
             this.DBUpdaterMTbx.Mask = "00:00";
             this.DBUpdaterMTbx.Name = "DBUpdaterMTbx";
             this.DBUpdaterMTbx.Size = new System.Drawing.Size(164, 26);
@@ -188,15 +198,16 @@
             // ParentOrgCbx
             // 
             this.ParentOrgCbx.FormattingEnabled = true;
-            this.ParentOrgCbx.Location = new System.Drawing.Point(12, 569);
+            this.ParentOrgCbx.Location = new System.Drawing.Point(12, 684);
             this.ParentOrgCbx.Name = "ParentOrgCbx";
             this.ParentOrgCbx.Size = new System.Drawing.Size(794, 28);
             this.ParentOrgCbx.TabIndex = 14;
             this.ParentOrgCbx.Text = "Организация";
+            this.ParentOrgCbx.SelectedValueChanged += new System.EventHandler(this.ParentOrgCbx_SelectedValueChanged);
             // 
             // SaveConfBtn
             // 
-            this.SaveConfBtn.Location = new System.Drawing.Point(12, 614);
+            this.SaveConfBtn.Location = new System.Drawing.Point(12, 729);
             this.SaveConfBtn.Name = "SaveConfBtn";
             this.SaveConfBtn.Size = new System.Drawing.Size(231, 45);
             this.SaveConfBtn.TabIndex = 15;
@@ -206,7 +217,7 @@
             // 
             // CheckConnectionSKYDTbx
             // 
-            this.CheckConnectionSKYDTbx.Location = new System.Drawing.Point(822, 114);
+            this.CheckConnectionSKYDTbx.Location = new System.Drawing.Point(822, 159);
             this.CheckConnectionSKYDTbx.Name = "CheckConnectionSKYDTbx";
             this.CheckConnectionSKYDTbx.Size = new System.Drawing.Size(244, 58);
             this.CheckConnectionSKYDTbx.TabIndex = 16;
@@ -216,7 +227,7 @@
             // 
             // OpenFolderBtn
             // 
-            this.OpenFolderBtn.Location = new System.Drawing.Point(575, 615);
+            this.OpenFolderBtn.Location = new System.Drawing.Point(575, 730);
             this.OpenFolderBtn.Name = "OpenFolderBtn";
             this.OpenFolderBtn.Size = new System.Drawing.Size(231, 45);
             this.OpenFolderBtn.TabIndex = 17;
@@ -227,7 +238,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 546);
+            this.label4.Location = new System.Drawing.Point(12, 661);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(340, 20);
             this.label4.TabIndex = 18;
@@ -240,7 +251,7 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.SaveSettingStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 673);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 797);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1078, 32);
             this.statusStrip1.TabIndex = 19;
@@ -261,12 +272,12 @@
             // SaveSettingStatus
             // 
             this.SaveSettingStatus.Name = "SaveSettingStatus";
-            this.SaveSettingStatus.Size = new System.Drawing.Size(205, 25);
-            this.SaveSettingStatus.Text = "(состояние сохранения)";
+            this.SaveSettingStatus.Size = new System.Drawing.Size(194, 25);
+            this.SaveSettingStatus.Text = "Настройки сохранены";
             // 
             // CheckConnectionRestBtn
             // 
-            this.CheckConnectionRestBtn.Location = new System.Drawing.Point(822, 23);
+            this.CheckConnectionRestBtn.Location = new System.Drawing.Point(822, 68);
             this.CheckConnectionRestBtn.Name = "CheckConnectionRestBtn";
             this.CheckConnectionRestBtn.Size = new System.Drawing.Size(244, 53);
             this.CheckConnectionRestBtn.TabIndex = 20;
@@ -276,7 +287,7 @@
             // 
             // FileRotationUpD
             // 
-            this.FileRotationUpD.Location = new System.Drawing.Point(12, 219);
+            this.FileRotationUpD.Location = new System.Drawing.Point(12, 334);
             this.FileRotationUpD.Maximum = new decimal(new int[] {
             -1530494976,
             232830,
@@ -295,25 +306,92 @@
             0,
             0,
             0});
+            this.FileRotationUpD.ValueChanged += new System.EventHandler(this.FileRotationUpD_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 196);
+            this.label5.Location = new System.Drawing.Point(12, 311);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(200, 20);
             this.label5.TabIndex = 22;
             this.label5.Text = "Период ротации файлов";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 242);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(221, 20);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Url панели администратора";
+            // 
+            // UrlAdminPanelTbx
+            // 
+            this.UrlAdminPanelTbx.Location = new System.Drawing.Point(12, 265);
+            this.UrlAdminPanelTbx.Name = "UrlAdminPanelTbx";
+            this.UrlAdminPanelTbx.Size = new System.Drawing.Size(794, 26);
+            this.UrlAdminPanelTbx.TabIndex = 23;
+            this.UrlAdminPanelTbx.TextChanged += new System.EventHandler(this.UrlAdminPanelTbx_TextChanged);
+            // 
+            // OpenAdminPanelBtn
+            // 
+            this.OpenAdminPanelBtn.Location = new System.Drawing.Point(822, 249);
+            this.OpenAdminPanelBtn.Name = "OpenAdminPanelBtn";
+            this.OpenAdminPanelBtn.Size = new System.Drawing.Size(244, 58);
+            this.OpenAdminPanelBtn.TabIndex = 25;
+            this.OpenAdminPanelBtn.Text = "Перейти к панели администратора";
+            this.OpenAdminPanelBtn.UseVisualStyleBackColor = true;
+            this.OpenAdminPanelBtn.Click += new System.EventHandler(this.OpenAdminPanelBtn_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.справкаToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1078, 33);
+            this.menuStrip1.TabIndex = 26;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.HelpMenuBtn,
+            this.AboutMenuBtn});
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(97, 29);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            // 
+            // HelpMenuBtn
+            // 
+            this.HelpMenuBtn.Name = "HelpMenuBtn";
+            this.HelpMenuBtn.Size = new System.Drawing.Size(227, 34);
+            this.HelpMenuBtn.Text = "Помощь";
+            this.HelpMenuBtn.Click += new System.EventHandler(this.HelpMenuBtn_Click);
+            // 
+            // AboutMenuBtn
+            // 
+            this.AboutMenuBtn.Name = "AboutMenuBtn";
+            this.AboutMenuBtn.Size = new System.Drawing.Size(227, 34);
+            this.AboutMenuBtn.Text = "О программе";
+            this.AboutMenuBtn.Click += new System.EventHandler(this.AboutMenuBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 705);
+            this.ClientSize = new System.Drawing.Size(1078, 829);
+            this.Controls.Add(this.OpenAdminPanelBtn);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.UrlAdminPanelTbx);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.FileRotationUpD);
             this.Controls.Add(this.CheckConnectionRestBtn);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.OpenFolderBtn);
             this.Controls.Add(this.CheckConnectionSKYDTbx);
@@ -333,6 +411,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UrlRestLbl);
             this.Controls.Add(this.UrlRestTbx);
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(2000, 2000);
             this.MinimumSize = new System.Drawing.Size(1100, 670);
             this.Name = "Form1";
@@ -340,6 +419,8 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FileRotationUpD)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,6 +454,13 @@
         private System.Windows.Forms.Button CheckConnectionRestBtn;
         private System.Windows.Forms.NumericUpDown FileRotationUpD;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox UrlAdminPanelTbx;
+        private System.Windows.Forms.Button OpenAdminPanelBtn;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HelpMenuBtn;
+        private System.Windows.Forms.ToolStripMenuItem AboutMenuBtn;
     }
 }
 

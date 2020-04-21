@@ -16,6 +16,8 @@ namespace LomConfig
     {
         private static string RestMethodToGetPeopleId = "peoples";
 
+        public static bool ProgramStarted = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -49,6 +51,7 @@ namespace LomConfig
                     "UrlREST = " + Configuration.RESTUrl + "\n" +
                     "FileRotation = " + Configuration.FileRotation + "\n" +
                     "ScudConnectionString = " + Configuration.ScudConnectionString + "\n" +
+                    "AdminPanelUrl = " + Configuration.AdminPanelUrl + "\n" +
                     "TimeGenerationPincode = " + FromArrayToString(Configuration.TimeGenerationPinCode) + "\n" +
                     "TimeUpdateDatabase = " + FromArrayToString(Configuration.TimeUpdateDatabase) + "\n" +
                     "ParentOrg = " + Configuration.ParentOrg;
@@ -71,6 +74,7 @@ namespace LomConfig
             Configuration.RESTUrl = IniData["Main"]["UrlREST"];
             Configuration.FileRotation = IniData["Main"]["FileRotation"];
             Configuration.ScudConnectionString = IniData["Main"]["ScudConnectionString"];
+            Configuration.AdminPanelUrl = IniData["Main"]["AdminPanelUrl"];
             Configuration.TimeGenerationPinCode = FromStringToArray(IniData["Main"]["TimeGenerationPincode"]);
             Configuration.TimeUpdateDatabase = FromStringToArray(IniData["Main"]["TimeUpdateDatabase"]);
             Configuration.ParentOrg = IniData["Main"]["ParentOrg"];
@@ -88,6 +92,8 @@ namespace LomConfig
 
             FileRotationUpD.Value = Convert.ToInt32(Configuration.FileRotation);
 
+            UrlAdminPanelTbx.Text = Configuration.AdminPanelUrl;
+
             foreach (string time in Configuration.TimeGenerationPinCode) PinGenTimeTableLbx.Items.Add(time);
 
             foreach (string time in Configuration.TimeUpdateDatabase) DBUpdateTimeTableLbx.Items.Add(time);
@@ -100,6 +106,8 @@ namespace LomConfig
                 char[] ItemOrgChars = ItemOrgStr.ToCharArray();
                 if (ItemOrgChars[0].ToString() == Configuration.ParentOrg) ParentOrgCbx.SelectedItem = Item;
             }
+
+            ProgramStarted = true;
         }
 
         private static string[] GetOrganizationList()
@@ -160,6 +168,44 @@ namespace LomConfig
             return Times.Split(' ');
         }
 
+        private bool IsChangesExist()
+        {
+            bool ChangeExisting = false;
+            
+            if (UrlRestTbx.Text != Configuration.RESTUrl) ChangeExisting = true;
+            if (CkydConnTxb.Text != Configuration.ScudConnectionString) ChangeExisting = true;
+            if (UrlAdminPanelTbx.Text != Configuration.AdminPanelUrl) ChangeExisting = true;
+            if (FileRotationUpD.Value.ToString() != Configuration.FileRotation) ChangeExisting = true;
+
+            
+            if(ParentOrgCbx.SelectedItem != null)
+            {
+                string ItemOrgStr = ParentOrgCbx.SelectedItem.ToString();
+                char[] ItemOrgChars = ItemOrgStr.ToCharArray();
+                if (ItemOrgChars[0].ToString() != Configuration.ParentOrg) ChangeExisting = true;
+            }
+
+            string[] cash = new string[PinGenTimeTableLbx.Items.Count];
+            PinGenTimeTableLbx.Items.CopyTo(cash, 0);
+            string total = FromArrayToString(cash);
+            if(total != FromArrayToString(Configuration.TimeGenerationPinCode)) ChangeExisting = true;
+
+            cash = new string[DBUpdateTimeTableLbx.Items.Count];
+            DBUpdateTimeTableLbx.Items.CopyTo(cash, 0);
+            total = FromArrayToString(cash);
+            if (total != FromArrayToString(Configuration.TimeUpdateDatabase)) ChangeExisting = true;
+
+            return ChangeExisting;          
+        }
+
+        public void CheckChanges()
+        {
+            if (ProgramStarted && IsChangesExist()) SaveSettingStatus.Text = "Есть несохраненные изменения";
+            else SaveSettingStatus.Text = "Изменения сохранены";
+
+            SaveConfBtn.Enabled = IsChangesExist();
+        }
+
         #region Events
 
         private void AddPinCodeGenTimeBtn_Click(object sender, EventArgs e)
@@ -168,6 +214,8 @@ namespace LomConfig
             {
                 DateTime Time = Convert.ToDateTime(PinGenMTbx.Text);
                 PinGenTimeTableLbx.Items.Add(Time.ToString("H:mm"));
+
+                CheckChanges();
             }
             catch(Exception ex)
             {
@@ -178,6 +226,8 @@ namespace LomConfig
         private void DeletePinCodeGenTimeBtn_Click(object sender, EventArgs e)
         {
             PinGenTimeTableLbx.Items.Remove(PinGenTimeTableLbx.SelectedItem);
+
+            CheckChanges();
         }
 
         private void AddDBUpdateTimeBtn_Click(object sender, EventArgs e)
@@ -186,6 +236,8 @@ namespace LomConfig
             {
                 DateTime Time = Convert.ToDateTime(DBUpdaterMTbx.Text);
                 DBUpdateTimeTableLbx.Items.Add(Time.ToString("H:mm"));
+
+                CheckChanges();
             }
             catch(Exception ex)
             {
@@ -196,6 +248,7 @@ namespace LomConfig
         private void DeleteDBUpdateTimeBtn_Click(object sender, EventArgs e)
         {
             DBUpdateTimeTableLbx.Items.Remove(DBUpdateTimeTableLbx.SelectedItem);
+            CheckChanges();
         }     
 
         private void SaveConfBtn_Click(object sender, EventArgs e)
@@ -209,6 +262,7 @@ namespace LomConfig
                 Configuration.ScudConnectionString = CkydConnTxb.Text;
 
                 Configuration.FileRotation = FileRotationUpD.Value.ToString();
+                Configuration.AdminPanelUrl = UrlAdminPanelTbx.Text;
 
                 string[] cash = new string[PinGenTimeTableLbx.Items.Count];
                 PinGenTimeTableLbx.Items.CopyTo(cash, 0);
@@ -227,6 +281,7 @@ namespace LomConfig
                 IniData["Main"]["UrlREST"] = Configuration.RESTUrl;
                 IniData["Main"]["FileRotation"] = Configuration.FileRotation;
                 IniData["Main"]["ScudConnectionString"] = Configuration.ScudConnectionString;
+                IniData["Main"]["AdminPanelUrl"] = Configuration.AdminPanelUrl;
                 IniData["Main"]["TimeGenerationPincode"] = FromArrayToString(Configuration.TimeGenerationPinCode);
                 IniData["Main"]["TimeUpdateDatabase"] = FromArrayToString(Configuration.TimeUpdateDatabase);
                 IniData["Main"]["ParentOrg"] = Configuration.ParentOrg;
@@ -234,13 +289,24 @@ namespace LomConfig
                 IniParser.WriteFile(Configuration.DefaultDirectoryPathToIni, IniData);
 
                 Logger.Log(new InfoRecord("Ручное изменение конфигурации, прошло успешно"));
+                CheckChanges();
                 MessageBox.Show("Сохранено успешно!");
             }
             catch(Exception ex)
             {
                 Logger.Log(new ErrorRecord(ex.Message));
                 MessageBox.Show(ex.Message);
-            }           
+            }
+            finally
+            {
+                Logger.Log(new WarningRecord("Были использованы следующие настройки:\nUrlRest = " + Configuration.RESTUrl + "\n" +
+                "FileRotation = " + Configuration.FileRotation + "\n" +
+                "ScudConnectionString = " + Configuration.ScudConnectionString + "\n" +
+                "AdminPanelUrl = " + Configuration.AdminPanelUrl + "\n" +
+                "TimeGenerationPincode = " + FromArrayToString(Configuration.TimeGenerationPinCode) + "\n" +
+                "TimeUpdateDatabase = " + FromArrayToString(Configuration.TimeUpdateDatabase) + "\n" +
+                "ParentOrg = " + Configuration.ParentOrg));
+            }
         }
 
         private void CheckConnectionTbx_Click(object sender, EventArgs e)
@@ -290,11 +356,52 @@ namespace LomConfig
             }
         }
 
-        #endregion
-
         private void OpenFolderBtn_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", Configuration.DefaultDirectoryPath);
-        }       
+        }
+
+        private void OpenAdminPanelBtn_Click(object sender, EventArgs e)
+        {
+            Process.Start(Configuration.AdminPanelUrl);
+        }
+
+        private void HelpMenuBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("/help - вызов справки\n/silent - запуск программы в штатном режиме\n/pin - генерация пин-кодв\n/load - Выгрузка базы данных\n/stop - остановка LOM", "Помощь", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void AboutMenuBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Разработчик: Бушин Алексей Юрьевич\nООО \"Арстек\" 2020\n", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void UrlRestTbx_TextChanged(object sender, EventArgs e)
+        {
+            CheckChanges();   
+        }
+
+        private void CkydConnTxb_TextChanged(object sender, EventArgs e)
+        {
+            CheckChanges();
+        }
+
+        private void UrlAdminPanelTbx_TextChanged(object sender, EventArgs e)
+        {
+            CheckChanges();
+        }
+
+        private void FileRotationUpD_ValueChanged(object sender, EventArgs e)
+        {
+            CheckChanges();
+        }
+
+        private void ParentOrgCbx_SelectedValueChanged(object sender, EventArgs e)
+        {
+            CheckChanges();
+        }
+
+
+        #endregion
     }
 }

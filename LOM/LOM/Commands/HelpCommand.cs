@@ -14,7 +14,7 @@ namespace LOM
         {           
             Logger.Log(new InfoRecord("Запуск LOM.exe в режиме /help"));
 
-            Console.WriteLine("/help - вызов справки\n/silent - запуск программы в штатном режиме\n/pin - генерация пин-кодв\n/load - Выгрузка базы данных\n/stop - остановка LOM");
+            Console.WriteLine("/help - вызов справки\n/silent - запуск программы в штатном режиме\n/pin - генерация пин-кодв\n/load - Выгрузка базы данных\n/stop - остановка LOM\nВерсия - " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " 2020");
         }
     }
 }

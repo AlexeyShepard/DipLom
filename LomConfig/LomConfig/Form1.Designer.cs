@@ -1,6 +1,6 @@
 ﻿namespace LomConfig
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -49,7 +49,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.VersionYearStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.SaveSettingStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.CheckConnectionRestBtn = new System.Windows.Forms.Button();
             this.FileRotationUpD = new System.Windows.Forms.NumericUpDown();
@@ -99,7 +99,7 @@
             this.CkydConnTxb.Name = "CkydConnTxb";
             this.CkydConnTxb.Size = new System.Drawing.Size(794, 74);
             this.CkydConnTxb.TabIndex = 3;
-            this.CkydConnTxb.TextChanged += new System.EventHandler(this.CkydConnTxb_TextChanged);
+            this.CkydConnTxb.TextChanged += new System.EventHandler(this.UrlRestTbx_TextChanged);
             // 
             // PinGenTimeTableLbx
             // 
@@ -109,6 +109,7 @@
             this.PinGenTimeTableLbx.Name = "PinGenTimeTableLbx";
             this.PinGenTimeTableLbx.Size = new System.Drawing.Size(378, 204);
             this.PinGenTimeTableLbx.TabIndex = 4;
+            this.PinGenTimeTableLbx.SelectedValueChanged += new System.EventHandler(this.UrlRestTbx_TextChanged);
             // 
             // label2
             // 
@@ -203,7 +204,7 @@
             this.ParentOrgCbx.Size = new System.Drawing.Size(794, 28);
             this.ParentOrgCbx.TabIndex = 14;
             this.ParentOrgCbx.Text = "Организация";
-            this.ParentOrgCbx.SelectedValueChanged += new System.EventHandler(this.ParentOrgCbx_SelectedValueChanged);
+            this.ParentOrgCbx.SelectedValueChanged += new System.EventHandler(this.UrlRestTbx_TextChanged);
             // 
             // SaveConfBtn
             // 
@@ -249,7 +250,7 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2,
+            this.VersionYearStatus,
             this.SaveSettingStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 797);
             this.statusStrip1.Name = "statusStrip1";
@@ -263,11 +264,11 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(127, 25);
             this.toolStripStatusLabel1.Text = "www.artonit.ru";
             // 
-            // toolStripStatusLabel2
+            // VersionYearStatus
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(191, 25);
-            this.toolStripStatusLabel2.Text = "(Версия сборки и год)";
+            this.VersionYearStatus.Name = "VersionYearStatus";
+            this.VersionYearStatus.Size = new System.Drawing.Size(191, 25);
+            this.VersionYearStatus.Text = "(Версия сборки и год)";
             // 
             // SaveSettingStatus
             // 
@@ -306,7 +307,6 @@
             0,
             0,
             0});
-            this.FileRotationUpD.ValueChanged += new System.EventHandler(this.FileRotationUpD_ValueChanged);
             // 
             // label5
             // 
@@ -332,7 +332,7 @@
             this.UrlAdminPanelTbx.Name = "UrlAdminPanelTbx";
             this.UrlAdminPanelTbx.Size = new System.Drawing.Size(794, 26);
             this.UrlAdminPanelTbx.TabIndex = 23;
-            this.UrlAdminPanelTbx.TextChanged += new System.EventHandler(this.UrlAdminPanelTbx_TextChanged);
+            this.UrlAdminPanelTbx.TextChanged += new System.EventHandler(this.UrlRestTbx_TextChanged);
             // 
             // OpenAdminPanelBtn
             // 
@@ -379,7 +379,7 @@
             this.AboutMenuBtn.Text = "О программе";
             this.AboutMenuBtn.Click += new System.EventHandler(this.AboutMenuBtn_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -414,8 +414,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(2000, 2000);
             this.MinimumSize = new System.Drawing.Size(1100, 670);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "LomConfig";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FileRotationUpD)).EndInit();
@@ -449,7 +450,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel VersionYearStatus;
         private System.Windows.Forms.ToolStripStatusLabel SaveSettingStatus;
         private System.Windows.Forms.Button CheckConnectionRestBtn;
         private System.Windows.Forms.NumericUpDown FileRotationUpD;

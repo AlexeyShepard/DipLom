@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text;
+using System.Reflection;
 using System.Windows.Forms;
 using IniParser;
 using IniParser.Model;
@@ -11,17 +12,19 @@ using System.Diagnostics;
 using System.Net.Http;
 
 namespace LomConfig
-{
-    public partial class Form1 : Form
+{    
+    public partial class MainForm : Form
     {
         private static string RestMethodToGetPeopleId = "peoples";
 
         public static bool ProgramStarted = false;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-           
+
+            VersionYearStatus.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString() + " 2020";
+
             IziLog.Configuration.PathToLogFile = Configuration.DefaultDirectoryPathToLog;
             IziLog.Configuration.FileRotation = Convert.ToInt32(Configuration.FileRotation);
 
@@ -206,6 +209,64 @@ namespace LomConfig
             SaveConfBtn.Enabled = IsChangesExist();
         }
 
+        public void SaveProcess()
+        {
+            try
+            {
+                FileIniDataParser IniParser = new FileIniDataParser();
+                IniData IniData = new IniData();
+
+                Configuration.RESTUrl = UrlRestTbx.Text;
+                Configuration.ScudConnectionString = CkydConnTxb.Text;
+
+                Configuration.FileRotation = FileRotationUpD.Value.ToString();
+                Configuration.AdminPanelUrl = UrlAdminPanelTbx.Text;
+
+                string[] cash = new string[PinGenTimeTableLbx.Items.Count];
+                PinGenTimeTableLbx.Items.CopyTo(cash, 0);
+                Configuration.TimeGenerationPinCode = cash;
+
+
+                cash = new string[DBUpdateTimeTableLbx.Items.Count];
+                DBUpdateTimeTableLbx.Items.CopyTo(cash, 0);
+                Configuration.TimeUpdateDatabase = cash;
+
+
+                string SelectedOrg = ParentOrgCbx.SelectedItem.ToString();
+                char[] SelectedOrdChars = SelectedOrg.ToCharArray();
+                Configuration.ParentOrg = SelectedOrdChars[0].ToString();
+
+                IniData["Main"]["UrlREST"] = Configuration.RESTUrl;
+                IniData["Main"]["FileRotation"] = Configuration.FileRotation;
+                IniData["Main"]["ScudConnectionString"] = Configuration.ScudConnectionString;
+                IniData["Main"]["AdminPanelUrl"] = Configuration.AdminPanelUrl;
+                IniData["Main"]["TimeGenerationPincode"] = FromArrayToString(Configuration.TimeGenerationPinCode);
+                IniData["Main"]["TimeUpdateDatabase"] = FromArrayToString(Configuration.TimeUpdateDatabase);
+                IniData["Main"]["ParentOrg"] = Configuration.ParentOrg;
+
+                IniParser.WriteFile(Configuration.DefaultDirectoryPathToIni, IniData);
+
+                Logger.Log(new InfoRecord("Ручное изменение конфигурации, прошло успешно"));
+                CheckChanges();
+                MessageBox.Show("Сохранено успешно!");
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(new ErrorRecord(ex.Message));
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Logger.Log(new WarningRecord("Были использованы следующие настройки:\nUrlRest = " + Configuration.RESTUrl + "\n" +
+                "FileRotation = " + Configuration.FileRotation + "\n" +
+                "ScudConnectionString = " + Configuration.ScudConnectionString + "\n" +
+                "AdminPanelUrl = " + Configuration.AdminPanelUrl + "\n" +
+                "TimeGenerationPincode = " + FromArrayToString(Configuration.TimeGenerationPinCode) + "\n" +
+                "TimeUpdateDatabase = " + FromArrayToString(Configuration.TimeUpdateDatabase) + "\n" +
+                "ParentOrg = " + Configuration.ParentOrg));
+            }
+        }
+
         #region Events
 
         private void AddPinCodeGenTimeBtn_Click(object sender, EventArgs e)
@@ -253,60 +314,7 @@ namespace LomConfig
 
         private void SaveConfBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                FileIniDataParser IniParser = new FileIniDataParser();
-                IniData IniData = new IniData();
-
-                Configuration.RESTUrl = UrlRestTbx.Text;
-                Configuration.ScudConnectionString = CkydConnTxb.Text;
-
-                Configuration.FileRotation = FileRotationUpD.Value.ToString();
-                Configuration.AdminPanelUrl = UrlAdminPanelTbx.Text;
-
-                string[] cash = new string[PinGenTimeTableLbx.Items.Count];
-                PinGenTimeTableLbx.Items.CopyTo(cash, 0);
-                Configuration.TimeGenerationPinCode = cash;
-
-
-                cash = new string[DBUpdateTimeTableLbx.Items.Count];
-                DBUpdateTimeTableLbx.Items.CopyTo(cash, 0);
-                Configuration.TimeUpdateDatabase = cash;
-
-
-                string SelectedOrg = ParentOrgCbx.SelectedItem.ToString();
-                char[] SelectedOrdChars = SelectedOrg.ToCharArray();
-                Configuration.ParentOrg = SelectedOrdChars[0].ToString();
-
-                IniData["Main"]["UrlREST"] = Configuration.RESTUrl;
-                IniData["Main"]["FileRotation"] = Configuration.FileRotation;
-                IniData["Main"]["ScudConnectionString"] = Configuration.ScudConnectionString;
-                IniData["Main"]["AdminPanelUrl"] = Configuration.AdminPanelUrl;
-                IniData["Main"]["TimeGenerationPincode"] = FromArrayToString(Configuration.TimeGenerationPinCode);
-                IniData["Main"]["TimeUpdateDatabase"] = FromArrayToString(Configuration.TimeUpdateDatabase);
-                IniData["Main"]["ParentOrg"] = Configuration.ParentOrg;
-
-                IniParser.WriteFile(Configuration.DefaultDirectoryPathToIni, IniData);
-
-                Logger.Log(new InfoRecord("Ручное изменение конфигурации, прошло успешно"));
-                CheckChanges();
-                MessageBox.Show("Сохранено успешно!");
-            }
-            catch(Exception ex)
-            {
-                Logger.Log(new ErrorRecord(ex.Message));
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                Logger.Log(new WarningRecord("Были использованы следующие настройки:\nUrlRest = " + Configuration.RESTUrl + "\n" +
-                "FileRotation = " + Configuration.FileRotation + "\n" +
-                "ScudConnectionString = " + Configuration.ScudConnectionString + "\n" +
-                "AdminPanelUrl = " + Configuration.AdminPanelUrl + "\n" +
-                "TimeGenerationPincode = " + FromArrayToString(Configuration.TimeGenerationPinCode) + "\n" +
-                "TimeUpdateDatabase = " + FromArrayToString(Configuration.TimeUpdateDatabase) + "\n" +
-                "ParentOrg = " + Configuration.ParentOrg));
-            }
+            SaveProcess();
         }
 
         private void CheckConnectionTbx_Click(object sender, EventArgs e)
@@ -380,28 +388,16 @@ namespace LomConfig
         {
             CheckChanges();   
         }
-
-        private void CkydConnTxb_TextChanged(object sender, EventArgs e)
-        {
-            CheckChanges();
-        }
-
-        private void UrlAdminPanelTbx_TextChanged(object sender, EventArgs e)
-        {
-            CheckChanges();
-        }
-
-        private void FileRotationUpD_ValueChanged(object sender, EventArgs e)
-        {
-            CheckChanges();
-        }
-
-        private void ParentOrgCbx_SelectedValueChanged(object sender, EventArgs e)
-        {
-            CheckChanges();
-        }
-
-
         #endregion
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (IsChangesExist())
+            {
+                DialogResult Result = MessageBox.Show("Имеются несохраненные данные, сохранить перед выходом?", "Есть несохраненные данные", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (Result.Equals(DialogResult.Yes)) SaveProcess();
+            }
+        }
     }
 }

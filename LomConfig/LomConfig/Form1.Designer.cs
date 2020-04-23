@@ -42,7 +42,6 @@
             this.DeleteDBUpdateTimeBtn = new System.Windows.Forms.Button();
             this.PinGenMTbx = new System.Windows.Forms.MaskedTextBox();
             this.DBUpdaterMTbx = new System.Windows.Forms.MaskedTextBox();
-            this.ParentOrgCbx = new System.Windows.Forms.ComboBox();
             this.SaveConfBtn = new System.Windows.Forms.Button();
             this.CheckConnectionSKYDTbx = new System.Windows.Forms.Button();
             this.OpenFolderBtn = new System.Windows.Forms.Button();
@@ -61,6 +60,7 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpMenuBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutMenuBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrganizationTree = new System.Windows.Forms.TreeView();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FileRotationUpD)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -196,19 +196,9 @@
             this.DBUpdaterMTbx.TabIndex = 13;
             this.DBUpdaterMTbx.ValidatingType = typeof(System.DateTime);
             // 
-            // ParentOrgCbx
-            // 
-            this.ParentOrgCbx.FormattingEnabled = true;
-            this.ParentOrgCbx.Location = new System.Drawing.Point(12, 684);
-            this.ParentOrgCbx.Name = "ParentOrgCbx";
-            this.ParentOrgCbx.Size = new System.Drawing.Size(794, 28);
-            this.ParentOrgCbx.TabIndex = 14;
-            this.ParentOrgCbx.Text = "Организация";
-            this.ParentOrgCbx.SelectedValueChanged += new System.EventHandler(this.UrlRestTbx_TextChanged);
-            // 
             // SaveConfBtn
             // 
-            this.SaveConfBtn.Location = new System.Drawing.Point(12, 729);
+            this.SaveConfBtn.Location = new System.Drawing.Point(12, 937);
             this.SaveConfBtn.Name = "SaveConfBtn";
             this.SaveConfBtn.Size = new System.Drawing.Size(231, 45);
             this.SaveConfBtn.TabIndex = 15;
@@ -228,7 +218,7 @@
             // 
             // OpenFolderBtn
             // 
-            this.OpenFolderBtn.Location = new System.Drawing.Point(575, 730);
+            this.OpenFolderBtn.Location = new System.Drawing.Point(575, 938);
             this.OpenFolderBtn.Name = "OpenFolderBtn";
             this.OpenFolderBtn.Size = new System.Drawing.Size(231, 45);
             this.OpenFolderBtn.TabIndex = 17;
@@ -252,7 +242,7 @@
             this.toolStripStatusLabel1,
             this.VersionYearStatus,
             this.SaveSettingStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 796);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1018);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1090, 32);
             this.statusStrip1.TabIndex = 19;
@@ -346,6 +336,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справкаToolStripMenuItem});
@@ -361,7 +352,7 @@
             this.HelpMenuBtn,
             this.AboutMenuBtn});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(97, 29);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(97, 30);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // HelpMenuBtn
@@ -378,11 +369,20 @@
             this.AboutMenuBtn.Text = "О программе";
             this.AboutMenuBtn.Click += new System.EventHandler(this.AboutMenuBtn_Click);
             // 
+            // OrganizationTree
+            // 
+            this.OrganizationTree.Location = new System.Drawing.Point(12, 696);
+            this.OrganizationTree.Name = "OrganizationTree";
+            this.OrganizationTree.Size = new System.Drawing.Size(794, 221);
+            this.OrganizationTree.TabIndex = 27;
+            this.OrganizationTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OrganizationTree_AfterSelect);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1090, 828);
+            this.ClientSize = new System.Drawing.Size(1090, 1050);
+            this.Controls.Add(this.OrganizationTree);
             this.Controls.Add(this.OpenAdminPanelBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.UrlAdminPanelTbx);
@@ -395,7 +395,6 @@
             this.Controls.Add(this.OpenFolderBtn);
             this.Controls.Add(this.CheckConnectionSKYDTbx);
             this.Controls.Add(this.SaveConfBtn);
-            this.Controls.Add(this.ParentOrgCbx);
             this.Controls.Add(this.DBUpdaterMTbx);
             this.Controls.Add(this.PinGenMTbx);
             this.Controls.Add(this.DeleteDBUpdateTimeBtn);
@@ -442,7 +441,6 @@
         private System.Windows.Forms.Button DeleteDBUpdateTimeBtn;
         private System.Windows.Forms.MaskedTextBox PinGenMTbx;
         private System.Windows.Forms.MaskedTextBox DBUpdaterMTbx;
-        private System.Windows.Forms.ComboBox ParentOrgCbx;
         private System.Windows.Forms.Button SaveConfBtn;
         private System.Windows.Forms.Button CheckConnectionSKYDTbx;
         private System.Windows.Forms.Button OpenFolderBtn;
@@ -461,6 +459,7 @@
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HelpMenuBtn;
         private System.Windows.Forms.ToolStripMenuItem AboutMenuBtn;
+        private System.Windows.Forms.TreeView OrganizationTree;
     }
 }
 

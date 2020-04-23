@@ -110,18 +110,13 @@ namespace LomConfig
 
             foreach (string time in Configuration.TimeUpdateDatabase) DBUpdateTimeTableLbx.Items.Add(time);
 
-            ParentOrgCbx.Items.AddRange(GetOrganizationList());
-
-            foreach(var Item in ParentOrgCbx.Items)
-            {
-                string ItemOrgStr = Item.ToString();
-                char[] ItemOrgChars = ItemOrgStr.ToCharArray();
-                if (ItemOrgChars[0].ToString() == Configuration.ParentOrg) ParentOrgCbx.SelectedItem = Item;
-            }
+            FillOrganizationTree();
+            SelectCurrentOrganizationNode(OrganizationTree.Nodes);
 
             ProgramStarted = true;
         }
 
+        ///Вдруг попросят вернуть выпадающий список
         private static string[] GetOrganizationList()
         {
             object StringsCount;
@@ -158,12 +153,80 @@ namespace LomConfig
                             items[i] += reader.GetValue(0) + " - " + reader.GetValue(2);
                             i++;
                         }
-                    }
-
-                    reader.Close();
                 }
 
+                    reader.Close();
+            }
+
             return items;
+        }
+
+        private void FillOrganizationTree()
+        {
+            OdbcCommand Command = new OdbcCommand("SELECT * FROM ORGANIZATION WHERE ID_PARENT = 1");
+            OdbcDataReader reader;
+
+            using (OdbcConnection Connection = new OdbcConnection(Configuration.ScudConnectionString))
+            {
+
+                Command.Connection = Connection;
+                Connection.Open();
+                reader = Command.ExecuteReader();
+
+                TreeNode OrganizationNode;
+
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        OrganizationNode = new TreeNode(reader.GetValue(0) + " - " + reader.GetValue(2));
+                        OrganizationTree.Nodes.Add(OrganizationNode);
+                        if(Convert.ToInt32(reader.GetValue(0)) != 1) AddChildrenOrganizationNode(OrganizationNode, Convert.ToInt32(reader.GetValue(0)));
+                    }
+                }  
+            }
+        }
+
+        private void AddChildrenOrganizationNode(TreeNode ParentNode, int ParentId)
+        {
+            OdbcCommand Command = new OdbcCommand("SELECT * FROM ORGANIZATION WHERE ID_PARENT = " + ParentId);
+            OdbcDataReader reader;
+
+            using (OdbcConnection Connection = new OdbcConnection(Configuration.ScudConnectionString))
+            {
+
+                Command.Connection = Connection;
+                Connection.Open();
+                reader = Command.ExecuteReader();
+
+                TreeNode OrganizationNode;
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        OrganizationNode = new TreeNode(reader.GetValue(0) + " - " + reader.GetValue(2));
+                        ParentNode.Nodes.Add(OrganizationNode);
+                        AddChildrenOrganizationNode(OrganizationNode, Convert.ToInt32(reader.GetValue(0)));
+                    }
+                }
+            }
+        }
+
+        private void SelectCurrentOrganizationNode(TreeNodeCollection Nodes)
+        {
+            foreach(TreeNode OrgNode in Nodes)
+            {
+                int Index = OrgNode.Text.IndexOf(" ");
+                if (OrgNode.Text.Substring(0, Index) == Configuration.ParentOrg)
+                {
+                    OrganizationTree.SelectedNode = OrgNode;
+                    OrganizationTree.SelectedNode.BackColor = System.Drawing.Color.LightBlue;
+                    break;
+                }
+                else SelectCurrentOrganizationNode(OrgNode.Nodes);
+            }
         }
 
         private static string FromArrayToString(string[] TimeTable)
@@ -190,12 +253,12 @@ namespace LomConfig
             if (FileRotationUpD.Value.ToString() != Configuration.FileRotation) ChangeExisting = true;
 
             
-            if(ParentOrgCbx.SelectedItem != null)
+            if(OrganizationTree.SelectedNode != null)
             {
-                string ItemOrgStr = ParentOrgCbx.SelectedItem.ToString();
-                char[] ItemOrgChars = ItemOrgStr.ToCharArray();
-                if (ItemOrgChars[0].ToString() != Configuration.ParentOrg) ChangeExisting = true;
-            }
+                string NodeOrgStr = OrganizationTree.SelectedNode.Text;
+                int Index = NodeOrgStr.IndexOf(" ");
+                if (NodeOrgStr.Substring(0, Index) != Configuration.ParentOrg) ChangeExisting = true;
+            }           
 
             string[] cash = new string[PinGenTimeTableLbx.Items.Count];
             PinGenTimeTableLbx.Items.CopyTo(cash, 0);
@@ -240,10 +303,9 @@ namespace LomConfig
                 DBUpdateTimeTableLbx.Items.CopyTo(cash, 0);
                 Configuration.TimeUpdateDatabase = cash;
 
-
-                string SelectedOrg = ParentOrgCbx.SelectedItem.ToString();
-                int Index = SelectedOrg.IndexOf(" ");
-                Configuration.ParentOrg = SelectedOrg.Substring(0, Index);
+                string NodeOrgStr = OrganizationTree.SelectedNode.Text;
+                int Index = NodeOrgStr.IndexOf(" ");
+                Configuration.ParentOrg = NodeOrgStr.Substring(0, Index);
 
                 IniData["Main"]["UrlREST"] = Configuration.RESTUrl;
                 IniData["Main"]["FileRotation"] = Configuration.FileRotation;
@@ -408,6 +470,11 @@ namespace LomConfig
 
                 if (Result.Equals(DialogResult.Yes)) SaveProcess();
             }
+        }
+
+        private void OrganizationTree_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            CheckChanges();
         }
 
         #endregion

@@ -36,6 +36,8 @@ namespace LomConfig
             else GetConfigurationFromFile();
         }
 
+        #region Methods
+
         private bool IsFirstLaunch()
         {
 
@@ -69,23 +71,30 @@ namespace LomConfig
 
         public void GetConfigurationFromFile()
         {
-            Logger.Log(new InfoRecord("Считывание конфигурации, приложением LomConfig..."));
+            try
+            {
+                Logger.Log(new InfoRecord("Считывание конфигурации, приложением LomConfig..."));
 
-            FileIniDataParser IniParser = new FileIniDataParser();
-            IniData IniData = IniParser.ReadFile(Configuration.DefaultDirectoryPathToIni);
+                FileIniDataParser IniParser = new FileIniDataParser();
+                IniData IniData = IniParser.ReadFile(Configuration.DefaultDirectoryPathToIni);
 
-            Configuration.RESTUrl = IniData["Main"]["UrlREST"];
-            Configuration.FileRotation = IniData["Main"]["FileRotation"];
-            Configuration.ScudConnectionString = IniData["Main"]["ScudConnectionString"];
-            Configuration.AdminPanelUrl = IniData["Main"]["AdminPanelUrl"];
-            Configuration.TimeGenerationPinCode = FromStringToArray(IniData["Main"]["TimeGenerationPincode"]);
-            Configuration.TimeUpdateDatabase = FromStringToArray(IniData["Main"]["TimeUpdateDatabase"]);
-            Configuration.ParentOrg = IniData["Main"]["ParentOrg"];
+                Configuration.RESTUrl = IniData["Main"]["UrlREST"];
+                Configuration.FileRotation = IniData["Main"]["FileRotation"];
+                Configuration.ScudConnectionString = IniData["Main"]["ScudConnectionString"];
+                Configuration.AdminPanelUrl = IniData["Main"]["AdminPanelUrl"];
+                Configuration.TimeGenerationPinCode = FromStringToArray(IniData["Main"]["TimeGenerationPincode"]);
+                Configuration.TimeUpdateDatabase = FromStringToArray(IniData["Main"]["TimeUpdateDatabase"]);
+                Configuration.ParentOrg = IniData["Main"]["ParentOrg"];
 
 
-            Logger.Log(new InfoRecord("Считывание конфигурации, приложением LomConfig завершенно, прошло успешно"));
+                Logger.Log(new InfoRecord("Считывание конфигурации, приложением LomConfig завершенно, прошло успешно"));
 
-            InsertConfigurationToTheField();
+                InsertConfigurationToTheField();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("В результате чтения конфигурационного файла, произошла ошибка. Удалите файл конфигурации и повторите попытку!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }           
         }
 
         private void InsertConfigurationToTheField()
@@ -233,8 +242,8 @@ namespace LomConfig
 
 
                 string SelectedOrg = ParentOrgCbx.SelectedItem.ToString();
-                char[] SelectedOrdChars = SelectedOrg.ToCharArray();
-                Configuration.ParentOrg = SelectedOrdChars[0].ToString();
+                int Index = SelectedOrg.IndexOf(" ");
+                Configuration.ParentOrg = SelectedOrg.Substring(0, Index);
 
                 IniData["Main"]["UrlREST"] = Configuration.RESTUrl;
                 IniData["Main"]["FileRotation"] = Configuration.FileRotation;
@@ -266,6 +275,8 @@ namespace LomConfig
                 "ParentOrg = " + Configuration.ParentOrg));
             }
         }
+
+        #endregion
 
         #region Events
 
@@ -388,7 +399,6 @@ namespace LomConfig
         {
             CheckChanges();   
         }
-        #endregion
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -399,5 +409,7 @@ namespace LomConfig
                 if (Result.Equals(DialogResult.Yes)) SaveProcess();
             }
         }
+
+        #endregion
     }
 }

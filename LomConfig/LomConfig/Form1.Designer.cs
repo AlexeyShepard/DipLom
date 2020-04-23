@@ -252,9 +252,9 @@
             this.toolStripStatusLabel1,
             this.VersionYearStatus,
             this.SaveSettingStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 797);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 796);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1078, 32);
+            this.statusStrip1.Size = new System.Drawing.Size(1090, 32);
             this.statusStrip1.TabIndex = 19;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -346,13 +346,12 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1078, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1090, 33);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -383,7 +382,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 829);
+            this.ClientSize = new System.Drawing.Size(1090, 828);
             this.Controls.Add(this.OpenAdminPanelBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.UrlAdminPanelTbx);
@@ -413,7 +412,7 @@
             this.Controls.Add(this.UrlRestTbx);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(2000, 2000);
-            this.MinimumSize = new System.Drawing.Size(1100, 670);
+            this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "MainForm";
             this.Text = "LomConfig";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

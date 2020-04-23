@@ -25,7 +25,7 @@ namespace LOM
 
         public static string DefaultDirectoryPathToIni = "C:\\ProgramData\\LOM\\LOM.ini";
 
-        public static string DefaultDirectoryPathToLog = "C:\\ProgramData\\LOM\\Log_" + DateTime.Now.ToString("dd.MM.yyyy") + ".txt";
+        public static string DefaultDirectoryPathToLog = "C:\\ProgramData\\LOM\\Lom_" + DateTime.Now.ToString("yyyy-MM-dd") + ".log";
 
         public static string ParentOrg = "1";
 

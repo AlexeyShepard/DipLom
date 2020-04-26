@@ -1,0 +1,1 @@
+<h1>Какой-то контент</h1><?php /**PATH C:\xampp\htdocs\lomadmin\resources\views/test.blade.php ENDPATH**/ ?>

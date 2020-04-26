@@ -13,5 +13,6 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('admin.home');
     $router->resource('demo/users', UserController::class);
     $router->resource('demo/peoples', PeopleController::class);
-
+    $router->resource('demo/events-logs', EventsLogsController::class);
+    $router->resource('test', TestController::class);
 });;

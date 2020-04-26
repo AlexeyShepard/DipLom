@@ -17,7 +17,7 @@ class PeopleController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\People';
+    protected $title = 'Сотрудники';
 
     /**
      * Make a grid builder.
@@ -42,6 +42,22 @@ class PeopleController extends AdminController
 
           if($active_pincode != null) return $active_pincode->PinCode;
           else return "Его не существует!";
+        });
+        
+        $grid->column('DateTimeGen')->display(function()
+        {
+            $active_pincode = Pincode::where('id_People', $this->id)->orderBy('id', 'desc')->first();
+
+            if($active_pincode != null) return $active_pincode->DateTimeGen;
+          else return "-";
+        });
+
+        $grid->column('EndTime')->display(function()
+        {
+            $active_pincode = Pincode::where('id_People', $this->id)->orderBy('id', 'desc')->first();
+
+            if($active_pincode != null) return $active_pincode->EndTime;
+          else return "-";
         });
 
         $grid->column('Phonenumber')->display(function()

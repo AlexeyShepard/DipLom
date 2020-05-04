@@ -5,7 +5,7 @@ namespace LOM
 {
     public static class Configuration
     {
-        public static string RESTUrl = "http://u0828948admin.isp.regruhosting.ru/api/web/";
+        public static string RESTUrl = "http://lomapi.isp.regruhosting.ru/api/";
 
         public static string ScudConnectionString = "Driver={Gemini InterBase ODBC Driver 2.0};" +
                                                     "Server=localhost;" +

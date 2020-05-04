@@ -2,21 +2,22 @@
 
 namespace App\Admin\Controllers;
 
-use App\People;
 use App\EventsLogs;
+use App\People;
+use App\EventResult;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class EventsLogsController extends AdminController
+class EventsLogsController extends CustomAdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Уведомления';
+    protected $title = 'EventsLogs';
 
     /**
      * Make a grid builder.
@@ -27,17 +28,31 @@ class EventsLogsController extends AdminController
     {
         $grid = new Grid(new EventsLogs());
 
-        $grid->model()->where('id_EventType', '=', 4);
+        $grid->filter(function($filter)
+        {
+            $filter->disableIdFilter();
+            $filter->date('DateTimeEvent', __(trans('base.DateTimeEvent')));
+        });
 
-        $grid->column('id_People', __('Id People'));
-        $grid->column('ФИО')->display(function()
+        $grid->disableExport();
+        $grid->disableCreation();
+        $grid->option('show_actions', false);
+        $grid->option('show_row_selector', false);
+
+        $grid->column(trans('base.SFP'))->display(function()
         {
             $current_people = People::where('id', $this->id_People)->first();
 
             return $current_people->SurName." ".$current_people->FirstName." ".$current_people->PatronymicName;
         });
-        $grid->column('Comments', __('Comments'));
-        $grid->column('DateTimeEvent', __('DateTimeEvent'));
+        $grid->column(trans('base.Result'))->display(function()
+        {
+            $event_result = EventResult::where('id', $this->id_EventResult)->first();
+
+            return trans('base.' . $event_result->ResultName);
+        });
+        $grid->column('Comments', __(trans('base.Content')));
+        $grid->column('DateTimeEvent', __(trans('base.DateTimeEvent')));
 
         return $grid;
     }
@@ -54,10 +69,8 @@ class EventsLogsController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('id_People', __('Id People'));
-        $show->field('id_EventType', __('Id EventType'));
         $show->field('id_EventResult', __('Id EventResult'));
         $show->field('Comments', __('Comments'));
-        $show->field('HumanOrder', __('HumanOrder'));
         $show->field('DateTimeEvent', __('DateTimeEvent'));
 
         return $show;
@@ -73,10 +86,8 @@ class EventsLogsController extends AdminController
         $form = new Form(new EventsLogs());
 
         $form->number('id_People', __('Id People'));
-        $form->number('id_EventType', __('Id EventType'));
         $form->number('id_EventResult', __('Id EventResult'));
         $form->text('Comments', __('Comments'));
-        $form->text('HumanOrder', __('HumanOrder'))->default('Нет');
         $form->datetime('DateTimeEvent', __('DateTimeEvent'))->default(date('Y-m-d H:i:s'));
 
         return $form;

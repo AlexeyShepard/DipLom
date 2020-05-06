@@ -25,3 +25,4 @@ C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.exe
 C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.pdb
 C:\Projects\DipLom\LomConfig\LomConfig\bin\Debug\IziLog.pdb
 C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.MainForm.resources
+C:\Projects\DipLom\LomConfig\LomConfig\obj\Debug\LomConfig.csproj.CoreCompileInputs.cache

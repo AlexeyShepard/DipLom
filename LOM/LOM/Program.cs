@@ -116,6 +116,7 @@ namespace LOM
             {
                 string contains = "[Main]\n" +
                     "UrlREST = " + Configuration.RESTUrl + "\n" +
+                    "RESTToken = " + Configuration.RESTToken + "\n" + 
                     "FileRotation = " + Configuration.FileRotation + "\n" +
                     "ScudConnectionString = " + Configuration.ScudConnectionString + "\n" +
                     "AdminPanelUrl = " + Configuration.AdminPanelUrl + "\n" +
@@ -139,6 +140,7 @@ namespace LOM
             IniData IniData = IniParser.ReadFile(Configuration.DefaultDirectoryPathToIni);
 
             Configuration.RESTUrl = IniData["Main"]["UrlREST"];
+            Configuration.RESTToken = IniData["Main"]["RESTToken"];
             Configuration.FileRotation = IniData["Main"]["FileRotation"];
             Configuration.ScudConnectionString = IniData["Main"]["ScudConnectionString"];
             Configuration.AdminPanelUrl = IniData["Main"]["AdminPanelUrl"];

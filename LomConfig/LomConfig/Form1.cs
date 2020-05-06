@@ -54,6 +54,7 @@ namespace LomConfig
             {
                 string contains = "[Main]\n" +
                     "UrlREST = " + Configuration.RESTUrl + "\n" +
+                    "RESTToken = " + Configuration.RESTToken + "\n" +
                     "FileRotation = " + Configuration.FileRotation + "\n" +
                     "ScudConnectionString = " + Configuration.ScudConnectionString + "\n" +
                     "AdminPanelUrl = " + Configuration.AdminPanelUrl + "\n" +
@@ -79,6 +80,7 @@ namespace LomConfig
                 IniData IniData = IniParser.ReadFile(Configuration.DefaultDirectoryPathToIni);
 
                 Configuration.RESTUrl = IniData["Main"]["UrlREST"];
+                Configuration.RESTToken = IniData["Main"]["RESTToken"];
                 Configuration.FileRotation = IniData["Main"]["FileRotation"];
                 Configuration.ScudConnectionString = IniData["Main"]["ScudConnectionString"];
                 Configuration.AdminPanelUrl = IniData["Main"]["AdminPanelUrl"];
@@ -101,6 +103,7 @@ namespace LomConfig
         {
             UrlRestTbx.Text = Configuration.RESTUrl;
             CkydConnTxb.Text = Configuration.ScudConnectionString;
+            RESTAPITokenTbx.Text = Configuration.RESTToken;
 
             FileRotationUpD.Value = Convert.ToInt32(Configuration.FileRotation);
 
@@ -249,6 +252,7 @@ namespace LomConfig
             
             if (UrlRestTbx.Text != Configuration.RESTUrl) ChangeExisting = true;
             if (CkydConnTxb.Text != Configuration.ScudConnectionString) ChangeExisting = true;
+            if (RESTAPITokenTbx.Text != Configuration.RESTToken) ChangeExisting = true;
             if (UrlAdminPanelTbx.Text != Configuration.AdminPanelUrl) ChangeExisting = true;
             if (FileRotationUpD.Value.ToString() != Configuration.FileRotation) ChangeExisting = true;
 
@@ -290,6 +294,7 @@ namespace LomConfig
 
                 Configuration.RESTUrl = UrlRestTbx.Text;
                 Configuration.ScudConnectionString = CkydConnTxb.Text;
+                Configuration.RESTToken = RESTAPITokenTbx.Text;
 
                 Configuration.FileRotation = FileRotationUpD.Value.ToString();
                 Configuration.AdminPanelUrl = UrlAdminPanelTbx.Text;
@@ -308,6 +313,7 @@ namespace LomConfig
                 Configuration.ParentOrg = NodeOrgStr.Substring(0, Index);
 
                 IniData["Main"]["UrlREST"] = Configuration.RESTUrl;
+                IniData["Main"]["RESTToken"] = Configuration.RESTToken;
                 IniData["Main"]["FileRotation"] = Configuration.FileRotation;
                 IniData["Main"]["ScudConnectionString"] = Configuration.ScudConnectionString;
                 IniData["Main"]["AdminPanelUrl"] = Configuration.AdminPanelUrl;
@@ -329,6 +335,7 @@ namespace LomConfig
             finally
             {
                 Logger.Log(new WarningRecord("Были использованы следующие настройки:\nUrlRest = " + Configuration.RESTUrl + "\n" +
+                "RESTTokem = " + Configuration.RESTToken + "\n" + 
                 "FileRotation = " + Configuration.FileRotation + "\n" +
                 "ScudConnectionString = " + Configuration.ScudConnectionString + "\n" +
                 "AdminPanelUrl = " + Configuration.AdminPanelUrl + "\n" +

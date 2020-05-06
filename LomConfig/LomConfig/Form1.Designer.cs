@@ -61,6 +61,8 @@
             this.HelpMenuBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutMenuBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.OrganizationTree = new System.Windows.Forms.TreeView();
+            this.RESTAPITokenTbx = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FileRotationUpD)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -86,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 120);
+            this.label1.Location = new System.Drawing.Point(10, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 20);
             this.label1.TabIndex = 2;
@@ -94,7 +96,7 @@
             // 
             // CkydConnTxb
             // 
-            this.CkydConnTxb.Location = new System.Drawing.Point(12, 143);
+            this.CkydConnTxb.Location = new System.Drawing.Point(12, 135);
             this.CkydConnTxb.Multiline = true;
             this.CkydConnTxb.Name = "CkydConnTxb";
             this.CkydConnTxb.Size = new System.Drawing.Size(794, 74);
@@ -105,16 +107,16 @@
             // 
             this.PinGenTimeTableLbx.FormattingEnabled = true;
             this.PinGenTimeTableLbx.ItemHeight = 20;
-            this.PinGenTimeTableLbx.Location = new System.Drawing.Point(16, 406);
+            this.PinGenTimeTableLbx.Location = new System.Drawing.Point(16, 504);
             this.PinGenTimeTableLbx.Name = "PinGenTimeTableLbx";
-            this.PinGenTimeTableLbx.Size = new System.Drawing.Size(378, 204);
+            this.PinGenTimeTableLbx.Size = new System.Drawing.Size(378, 164);
             this.PinGenTimeTableLbx.TabIndex = 4;
             this.PinGenTimeTableLbx.SelectedValueChanged += new System.EventHandler(this.UrlRestTbx_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 383);
+            this.label2.Location = new System.Drawing.Point(12, 481);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(258, 20);
             this.label2.TabIndex = 5;
@@ -124,15 +126,15 @@
             // 
             this.DBUpdateTimeTableLbx.FormattingEnabled = true;
             this.DBUpdateTimeTableLbx.ItemHeight = 20;
-            this.DBUpdateTimeTableLbx.Location = new System.Drawing.Point(413, 406);
+            this.DBUpdateTimeTableLbx.Location = new System.Drawing.Point(413, 504);
             this.DBUpdateTimeTableLbx.Name = "DBUpdateTimeTableLbx";
-            this.DBUpdateTimeTableLbx.Size = new System.Drawing.Size(393, 204);
+            this.DBUpdateTimeTableLbx.Size = new System.Drawing.Size(393, 164);
             this.DBUpdateTimeTableLbx.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(409, 383);
+            this.label3.Location = new System.Drawing.Point(409, 481);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(294, 20);
             this.label3.TabIndex = 7;
@@ -140,7 +142,7 @@
             // 
             // AddPinCodeGenTimeBtn
             // 
-            this.AddPinCodeGenTimeBtn.Location = new System.Drawing.Point(185, 616);
+            this.AddPinCodeGenTimeBtn.Location = new System.Drawing.Point(185, 683);
             this.AddPinCodeGenTimeBtn.Name = "AddPinCodeGenTimeBtn";
             this.AddPinCodeGenTimeBtn.Size = new System.Drawing.Size(108, 41);
             this.AddPinCodeGenTimeBtn.TabIndex = 8;
@@ -150,7 +152,7 @@
             // 
             // DeletePinCodeGenTimeBtn
             // 
-            this.DeletePinCodeGenTimeBtn.Location = new System.Drawing.Point(299, 616);
+            this.DeletePinCodeGenTimeBtn.Location = new System.Drawing.Point(299, 683);
             this.DeletePinCodeGenTimeBtn.Name = "DeletePinCodeGenTimeBtn";
             this.DeletePinCodeGenTimeBtn.Size = new System.Drawing.Size(95, 41);
             this.DeletePinCodeGenTimeBtn.TabIndex = 9;
@@ -160,7 +162,7 @@
             // 
             // AddDBUpdateTimeBtn
             // 
-            this.AddDBUpdateTimeBtn.Location = new System.Drawing.Point(577, 616);
+            this.AddDBUpdateTimeBtn.Location = new System.Drawing.Point(577, 683);
             this.AddDBUpdateTimeBtn.Name = "AddDBUpdateTimeBtn";
             this.AddDBUpdateTimeBtn.Size = new System.Drawing.Size(111, 41);
             this.AddDBUpdateTimeBtn.TabIndex = 10;
@@ -170,7 +172,7 @@
             // 
             // DeleteDBUpdateTimeBtn
             // 
-            this.DeleteDBUpdateTimeBtn.Location = new System.Drawing.Point(694, 616);
+            this.DeleteDBUpdateTimeBtn.Location = new System.Drawing.Point(694, 683);
             this.DeleteDBUpdateTimeBtn.Name = "DeleteDBUpdateTimeBtn";
             this.DeleteDBUpdateTimeBtn.Size = new System.Drawing.Size(112, 41);
             this.DeleteDBUpdateTimeBtn.TabIndex = 11;
@@ -180,7 +182,7 @@
             // 
             // PinGenMTbx
             // 
-            this.PinGenMTbx.Location = new System.Drawing.Point(12, 623);
+            this.PinGenMTbx.Location = new System.Drawing.Point(12, 690);
             this.PinGenMTbx.Mask = "00:00";
             this.PinGenMTbx.Name = "PinGenMTbx";
             this.PinGenMTbx.Size = new System.Drawing.Size(167, 26);
@@ -189,7 +191,7 @@
             // 
             // DBUpdaterMTbx
             // 
-            this.DBUpdaterMTbx.Location = new System.Drawing.Point(407, 623);
+            this.DBUpdaterMTbx.Location = new System.Drawing.Point(407, 690);
             this.DBUpdaterMTbx.Mask = "00:00";
             this.DBUpdaterMTbx.Name = "DBUpdaterMTbx";
             this.DBUpdaterMTbx.Size = new System.Drawing.Size(164, 26);
@@ -208,7 +210,7 @@
             // 
             // CheckConnectionSKYDTbx
             // 
-            this.CheckConnectionSKYDTbx.Location = new System.Drawing.Point(822, 159);
+            this.CheckConnectionSKYDTbx.Location = new System.Drawing.Point(822, 151);
             this.CheckConnectionSKYDTbx.Name = "CheckConnectionSKYDTbx";
             this.CheckConnectionSKYDTbx.Size = new System.Drawing.Size(244, 58);
             this.CheckConnectionSKYDTbx.TabIndex = 16;
@@ -229,7 +231,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 661);
+            this.label4.Location = new System.Drawing.Point(8, 737);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(340, 20);
             this.label4.TabIndex = 18;
@@ -278,7 +280,7 @@
             // 
             // FileRotationUpD
             // 
-            this.FileRotationUpD.Location = new System.Drawing.Point(12, 334);
+            this.FileRotationUpD.Location = new System.Drawing.Point(12, 431);
             this.FileRotationUpD.Maximum = new decimal(new int[] {
             -1530494976,
             232830,
@@ -301,7 +303,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 311);
+            this.label5.Location = new System.Drawing.Point(12, 397);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(200, 20);
             this.label5.TabIndex = 22;
@@ -310,7 +312,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 242);
+            this.label6.Location = new System.Drawing.Point(12, 223);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(221, 20);
             this.label6.TabIndex = 24;
@@ -318,7 +320,7 @@
             // 
             // UrlAdminPanelTbx
             // 
-            this.UrlAdminPanelTbx.Location = new System.Drawing.Point(12, 265);
+            this.UrlAdminPanelTbx.Location = new System.Drawing.Point(14, 255);
             this.UrlAdminPanelTbx.Name = "UrlAdminPanelTbx";
             this.UrlAdminPanelTbx.Size = new System.Drawing.Size(794, 26);
             this.UrlAdminPanelTbx.TabIndex = 23;
@@ -326,7 +328,7 @@
             // 
             // OpenAdminPanelBtn
             // 
-            this.OpenAdminPanelBtn.Location = new System.Drawing.Point(822, 249);
+            this.OpenAdminPanelBtn.Location = new System.Drawing.Point(822, 239);
             this.OpenAdminPanelBtn.Name = "OpenAdminPanelBtn";
             this.OpenAdminPanelBtn.Size = new System.Drawing.Size(244, 58);
             this.OpenAdminPanelBtn.TabIndex = 25;
@@ -342,7 +344,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1090, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1090, 36);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -371,17 +373,37 @@
             // 
             // OrganizationTree
             // 
-            this.OrganizationTree.Location = new System.Drawing.Point(12, 696);
+            this.OrganizationTree.Location = new System.Drawing.Point(12, 760);
             this.OrganizationTree.Name = "OrganizationTree";
-            this.OrganizationTree.Size = new System.Drawing.Size(794, 221);
+            this.OrganizationTree.Size = new System.Drawing.Size(794, 157);
             this.OrganizationTree.TabIndex = 27;
             this.OrganizationTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OrganizationTree_AfterSelect);
+            // 
+            // RESTAPITokenTbx
+            // 
+            this.RESTAPITokenTbx.Location = new System.Drawing.Point(12, 320);
+            this.RESTAPITokenTbx.Multiline = true;
+            this.RESTAPITokenTbx.Name = "RESTAPITokenTbx";
+            this.RESTAPITokenTbx.Size = new System.Drawing.Size(794, 74);
+            this.RESTAPITokenTbx.TabIndex = 29;
+            this.RESTAPITokenTbx.TextChanged += new System.EventHandler(this.UrlRestTbx_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 297);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(164, 20);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Токен для REST API";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 1050);
+            this.Controls.Add(this.RESTAPITokenTbx);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.OrganizationTree);
             this.Controls.Add(this.OpenAdminPanelBtn);
             this.Controls.Add(this.label6);
@@ -410,7 +432,7 @@
             this.Controls.Add(this.UrlRestLbl);
             this.Controls.Add(this.UrlRestTbx);
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(2000, 2000);
+            this.MaximumSize = new System.Drawing.Size(2200, 2200);
             this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "MainForm";
             this.Text = "LomConfig";
@@ -460,6 +482,8 @@
         private System.Windows.Forms.ToolStripMenuItem HelpMenuBtn;
         private System.Windows.Forms.ToolStripMenuItem AboutMenuBtn;
         private System.Windows.Forms.TreeView OrganizationTree;
+        private System.Windows.Forms.TextBox RESTAPITokenTbx;
+        private System.Windows.Forms.Label label7;
     }
 }
 

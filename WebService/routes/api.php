@@ -20,6 +20,7 @@ Route::middleware('auth:api')->group( function () {
   Route::resource('events-handling', 'EventsHandlingController');
   Route::resource('pin-code', 'PinCodeController');
   Route::resource('people', 'PeopleController');
+  Route::post('login', 'LoginController@login');
 });
 
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {

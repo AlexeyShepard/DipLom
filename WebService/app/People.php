@@ -24,6 +24,15 @@ class People extends Model
      * @var array
      */
     protected $hidden = [
-        'Login', 'Password', 'DateTimeCreate', 'ActivityStatus',
+        'Password', 'DateTimeCreate', 'ActivityStatus',
     ];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+      'SurName', 'FirstName', 'PatronymicName', 'Login', 'Password',
+  ];
 }

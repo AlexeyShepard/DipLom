@@ -21,4 +21,19 @@ class PeopleController extends BaseController
 
         return $this->sendResponse($people->toArray(), 'People retrieved successfully.');
     }
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+
+        try
+        {
+            $people = People::create($input);
+            return $this->sendResponse($people->toArray(), 'Success');
+        }
+        catch(Exceception $e)
+        {
+            return $this->sendError($e, [], 500);
+        }
+    }
 }

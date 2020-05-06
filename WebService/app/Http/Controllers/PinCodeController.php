@@ -14,4 +14,11 @@ class PinCodeController extends BaseController
 
         return $this->sendResponse($pinCode->toArray(), 'EventsHandlng retrieved successfully.');
     }
+
+    public function show($id)
+    {
+        $pinCode = PinCode::where('id_People', $id)->first();
+
+        return $this->sendResponse($pinCode->toArray(), 'People retrieved successfully.');
+    }
 }

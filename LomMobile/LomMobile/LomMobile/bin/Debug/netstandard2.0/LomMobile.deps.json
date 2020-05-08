@@ -14,8 +14,7 @@
           "System.Net.Http": "4.3.4",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Essentials": "1.5.3.1",
-          "Xamarin.Forms": "4.6.0.726",
-          "Mono.Android": "0.0.0.0"
+          "Xamarin.Forms": "4.6.0.726"
         },
         "runtime": {
           "LomMobile.dll": {}
@@ -523,14 +522,6 @@
             "fileVersion": "4.6.0.446"
           }
         }
-      },
-      "Mono.Android/0.0.0.0": {
-        "runtime": {
-          "Mono.Android.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
-          }
-        }
       }
     }
   },
@@ -924,11 +915,6 @@
       "sha512": "sha512-NI7iL5NnrQN/gCyoHLlexcDndNin67hFV7ObG8QQU2zbEi15B1SRaAsuiNeXVYAHfXg3/amqryqzGd+3R6lyZQ==",
       "path": "xamarin.forms/4.6.0.726",
       "hashPath": "xamarin.forms.4.6.0.726.nupkg.sha512"
-    },
-    "Mono.Android/0.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

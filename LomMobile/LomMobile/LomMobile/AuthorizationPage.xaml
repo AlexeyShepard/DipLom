@@ -4,11 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="LomMobile.AuthorizationPage">
+             x:Class="LomMobile.AuthorizationPage"
+             Title="LomMobile">
     <ContentPage.Content>
         <StackLayout>
-            <Grid VerticalOptions="CenterAndExpand" 
-                  HorizontalOptions="CenterAndExpand">
+            <Grid   VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -20,37 +21,38 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0"
-                       Text="LOM"
-                       FontSize="33" 
-                       HorizontalOptions="CenterAndExpand"/>
-                <Label Grid.Row="1"
-                       Text="Авторизация"
-                       FontSize="30" 
-                       HorizontalOptions="CenterAndExpand"/>
+                <Label  Grid.Row="0"
+                            Text="LOM"
+                            FontSize="33" 
+                            HorizontalOptions="CenterAndExpand"/>
+                <Label  Grid.Row="1"
+                            Text="Авторизация"
+                            FontSize="30" 
+                            HorizontalOptions="CenterAndExpand"/>
                 <Label  Grid.Row="2"
-                        x:Name="LoginErrorLbl"
-                        TextColor="Red"/>
+                            x:Name="LoginErrorLbl"
+                            TextColor="Red"/>
                 <Entry  x:Name="LoginEntr"
-                        Grid.Row="3"
-                        Placeholder="Логин" />
+                            Grid.Row="3"
+                            Placeholder="Логин" />
                 <Label  Grid.Row="4"
-                        x:Name="PasswordErrorLbl"
-                        TextColor="Red"/>
+                            x:Name="PasswordErrorLbl"
+                            TextColor="Red"/>
                 <Entry  x:Name="PasswordEntr"
-                        Grid.Row="5"
-                        Placeholder="Пароль"
-                        IsPassword="True"/>
+                            Grid.Row="5"
+                            Placeholder="Пароль"
+                            IsPassword="True"/>
                 <Button x:Name="LoginBtn"
                         Text="Войти"
                         Grid.Row="6"
                         Clicked="LoginBtn_Clicked"/>
                 <Button x:Name="ToRegistrationBtn"
-                        Text="Регистрация"
-                        Grid.Row="7"/>
+                            Text="Регистрация"
+                            Grid.Row="7"
+                            Clicked="ToRegistrationBtn_Clicked"/>
                 <Label  Grid.Row="8"
-                        x:Name="LoginResultLbl"
-                        TextColor="red"/>
+                            x:Name="LoginResultLbl"
+                            TextColor="red"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

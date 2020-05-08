@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LomMobile.RegistrationPage"
+             Title="LomMobile">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+            <Grid   VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label  Grid.Row="0"
+                        Text="Регистрация"
+                        FontSize="30" 
+                        HorizontalOptions="CenterAndExpand"/>
+                <Label  Grid.Row="1"
+                        x:Name="SurNameErrorLbl"
+                        TextColor="Red"/>
+                <Entry  x:Name="SurNameEntr"
+                        Grid.Row="2"
+                        Placeholder="* Фамилия"/>
+                <Label  Grid.Row="3"
+                        x:Name="FirstNameErrorLbl"
+                        TextColor="Red"/>
+                <Entry  x:Name="FirstNameEntr"
+                        Grid.Row="4"
+                        Placeholder="* Имя"/>
+                <Label  Grid.Row="5"
+                        x:Name="PatronymicNameErrorLbl"
+                        TextColor="Red"/>
+                <Entry  x:Name="PatronymicNameEntr"
+                        Grid.Row="6"
+                        Placeholder="Отчество"/>
+                <Label  Grid.Row="7"
+                        x:Name="LoginErrorLbl"
+                        TextColor="Red"/>
+                <Entry  x:Name="LoginEntr"
+                        Grid.Row="8"
+                        Placeholder="* Логин"/>
+                <Label  Grid.Row="9"
+                        x:Name="PasswordErrorLbl"
+                        TextColor="Red"/>
+                <Entry  x:Name="PasswordEntr"
+                        Grid.Row="10"
+                        Placeholder="* Пароль"
+                        IsPassword="True"/>
+                <Label  Grid.Row="11"
+                        x:Name="RepeatPasswordErrorLbl"
+                        TextColor="Red"/>
+                <Entry  x:Name="RepeatPasswordEntr"
+                        Grid.Row="12"
+                        Placeholder="* Повторите пароль"
+                        IsPassword="True"/>
+                <Button x:Name="RegBtn"
+                        Text="Зарегестрироваться"
+                        Grid.Row="13"
+                        Clicked="RegBtn_Clicked"/>
+                <Button x:Name="BackBtn"
+                        Text="Назад"
+                        Grid.Row="14"
+                        Clicked="BackBtn_Clicked"/>
+            </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -2329,11 +2329,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\LomMobile\\LomMobile\\LomMobile.Android\\LomMobile.Android.csproj",
+      "projectUniqueName": "C:\\Projects\\DipLom\\LomMobile\\LomMobile\\LomMobile.Android\\LomMobile.Android.csproj",
       "projectName": "LomMobile.Android",
-      "projectPath": "C:\\Projects\\LomMobile\\LomMobile\\LomMobile.Android\\LomMobile.Android.csproj",
+      "projectPath": "C:\\Projects\\DipLom\\LomMobile\\LomMobile\\LomMobile.Android\\LomMobile.Android.csproj",
       "packagesPath": "C:\\Users\\Пользователь\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\LomMobile\\LomMobile\\LomMobile.Android\\obj\\",
+      "outputPath": "C:\\Projects\\DipLom\\LomMobile\\LomMobile\\LomMobile.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2354,8 +2354,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Projects\\LomMobile\\LomMobile\\LomMobile\\LomMobile.csproj": {
-              "projectPath": "C:\\Projects\\LomMobile\\LomMobile\\LomMobile\\LomMobile.csproj"
+            "C:\\Projects\\DipLom\\LomMobile\\LomMobile\\LomMobile\\LomMobile.csproj": {
+              "projectPath": "C:\\Projects\\DipLom\\LomMobile\\LomMobile\\LomMobile\\LomMobile.csproj"
             }
           }
         }

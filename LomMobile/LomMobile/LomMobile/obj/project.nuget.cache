@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VYEIncCcg6epeled3esIKueAW7PIWEwxHTSCvEB+/S9mmN00xGjeU98Ay/Wuy8qq/RwT0SXVrI+YjhCnVzGFzA==",
+  "dgSpecHash": "tGbL1fZUiRw3Sod5f/PmSSKbNVCIP6TzApdovIhiSRa1dp1cCtddU3NnN/dORGZGZMUYGKvRrOy9+8j5/b1gpQ==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\LomMobile\\LomMobile\\LomMobile\\LomMobile.csproj",
+  "projectFilePath": "C:\\Projects\\DipLom\\LomMobile\\LomMobile\\LomMobile\\LomMobile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Пользователь\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

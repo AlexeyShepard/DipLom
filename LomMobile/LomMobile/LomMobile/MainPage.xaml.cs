@@ -21,17 +21,29 @@ namespace LomMobile
         {
             InitializeComponent();
 
+            FIOLbl.Text = UserInfo.FirstName + " " + UserInfo.SurName;
+
             SetPinCode();
         }
 
         private async void SetPinCode()
         {
-            Pincode Pincode = await GetPinCode(UserInfo.Id);
-
-            Device.BeginInvokeOnMainThread(() =>
+            try
             {
-                ActivePinCodeLbl.Text = Pincode.PinCode;
-            });
+                Pincode Pincode = await GetPinCode(UserInfo.Id);
+
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    ActivePinCodeLbl.Text = Pincode.PinCode;
+                });
+            }
+            catch(Exception ex)
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    ActivePinCodeLbl.Text = "Пин-код отсутствует";
+                });
+            }          
         }
         
         private async Task<Pincode> GetPinCode(int UserId)
@@ -47,6 +59,46 @@ namespace LomMobile
 
             JObject JObject = JObject.Parse(JsonContent);
             return JObject.ToObject<Pincode>();
+        }
+
+        private void ReFreshBtn_Clicked(Object sender, EventArgs e)
+        {
+            SetPinCode();
+        }
+
+        private async void GenerateBtn_Clicked(Object sender, EventArgs e)
+        {
+            try
+            {
+                using (HttpClient Client = new HttpClient())
+                {
+                    Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Configuration.RESTToken);
+                    HttpRequestMessage Request = new HttpRequestMessage(HttpMethod.Post, Configuration.RESTUrl + "events-handling");
+                    Request.Content = GenerateJsonOfEventHandling(UserInfo.Id);
+
+                    HttpResponseMessage Response = await Client.SendAsync(Request);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                SetPinCode();
+            }
+        }
+
+        private static FormUrlEncodedContent GenerateJsonOfEventHandling(int Id)
+        {
+            int status = 110;
+
+            var keyValues = new List<KeyValuePair<string, string>>();
+            keyValues.Add(new KeyValuePair<string, string>("id_People", Id.ToString()));
+            keyValues.Add(new KeyValuePair<string, string>("id_EventType", status.ToString()));
+            keyValues.Add(new KeyValuePair<string, string>("HumanOrder", "Нет"));
+
+            return new FormUrlEncodedContent(keyValues);
         }
     }
 }

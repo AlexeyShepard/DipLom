@@ -3513,11 +3513,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\LomMobile\\LomMobile\\LomMobile\\LomMobile.csproj",
+      "projectUniqueName": "C:\\Projects\\DipLom\\LomMobile\\LomMobile\\LomMobile\\LomMobile.csproj",
       "projectName": "LomMobile",
-      "projectPath": "C:\\Projects\\LomMobile\\LomMobile\\LomMobile\\LomMobile.csproj",
+      "projectPath": "C:\\Projects\\DipLom\\LomMobile\\LomMobile\\LomMobile\\LomMobile.csproj",
       "packagesPath": "C:\\Users\\Пользователь\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\LomMobile\\LomMobile\\LomMobile\\obj\\",
+      "outputPath": "C:\\Projects\\DipLom\\LomMobile\\LomMobile\\LomMobile\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

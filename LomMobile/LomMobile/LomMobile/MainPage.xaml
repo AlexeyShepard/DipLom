@@ -4,24 +4,40 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="LomMobile.MainPage">
-
+             x:Class="LomMobile.MainPage"
+             Title="Профиль">
     <StackLayout>
         <Grid   VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label  Grid.Row="0"
+                <Label  Grid.Row="1"
+                        x:Name="FIOLbl"
+                        FontSize="30"
+                        HorizontalOptions="CenterAndExpand"/>
+                <Label  Grid.Row="2"
                         Text="Активный пин-код"
                         FontSize="30"
                         HorizontalOptions="CenterAndExpand"/>
-                <Label  Grid.Row="1"
+                <Label  Grid.Row="3"
                         x:Name="ActivePinCodeLbl"
                         FontSize="30"
                         HorizontalOptions="CenterAndExpand"/>
-            </Grid>
+                <Button Grid.Row="4"
+                        x:Name="ReFreshBtn"
+                        Text="Обновить"
+                        Clicked="ReFreshBtn_Clicked"/>
+                <Button Grid.Row="5"
+                        x:Name="GenerateBtn"
+                        Text="Сгенерировать"
+                        Clicked="GenerateBtn_Clicked"/>
+
+        </Grid>
     </StackLayout>
 
 </ContentPage>

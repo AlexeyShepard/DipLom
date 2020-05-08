@@ -35,20 +35,6 @@ namespace LomMobile
             }*/
         }
 
-        private async void LoginBtn_Clicked(Object sender, EventArgs e)
-        {
-            LoginErrorLbl.Text = "";
-            PasswordErrorLbl.Text = "";
-            LoginResultLbl.Text = "";
-            
-            bool IsValid = IsValidate();
-            bool IsAuth = await IsAuthorized();
-
-            if (IsValid && IsAuth) await Navigation.PushAsync(new MainPage());
-            else if (IsValid) LoginResultLbl.Text = "Неверный логин или пароль";
-
-        }
-
         private bool IsValidate()
         {
             bool Password = true, Login = true;
@@ -130,6 +116,31 @@ namespace LomMobile
                     LoginErrorLbl.Text = "Вроде работает!";
                 });            
             });             
+        }
+
+        private async void LoginBtn_Clicked(Object sender, EventArgs e)
+        {
+            UserInfo.FirstName = "";
+            UserInfo.Id = 0;
+            UserInfo.PatronymicName = "";
+            UserInfo.PinCode = "";
+            UserInfo.SurName = "";
+
+            LoginErrorLbl.Text = "";
+            PasswordErrorLbl.Text = "";
+            LoginResultLbl.Text = "";
+
+            bool IsValid = IsValidate();
+            bool IsAuth = await IsAuthorized();
+
+            if (IsValid && IsAuth) await Navigation.PushAsync(new MainPage());
+            else if (IsValid) LoginResultLbl.Text = "Неверный логин или пароль";
+
+        }
+
+        private async void ToRegistrationBtn_Clicked(Object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new RegistrationPage());
         }
     }
 }

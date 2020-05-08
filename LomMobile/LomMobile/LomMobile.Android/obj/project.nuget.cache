@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7BZS9jyZ0153DM07awoMUPFp0sjMkWMGRF+/8jRgOWHrfqT64i+irDC1ScYS0mpq80eZbX5aCaOZy3HnwgNEfg==",
+  "dgSpecHash": "L4zbK2SLnp6UxL2OARpOm6ZMf1Sqc4RoiT8bTZHSd5//UPbM1ARGBLV+h7nRq7+eRi+XmZ4TW3le7B+regTiUQ==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\LomMobile\\LomMobile\\LomMobile.Android\\LomMobile.Android.csproj",
+  "projectFilePath": "C:\\Projects\\DipLom\\LomMobile\\LomMobile\\LomMobile.Android\\LomMobile.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Пользователь\\.nuget\\packages\\exiflib.pcl\\1.0.1\\exiflib.pcl.1.0.1.nupkg.sha512",
     "C:\\Users\\Пользователь\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",

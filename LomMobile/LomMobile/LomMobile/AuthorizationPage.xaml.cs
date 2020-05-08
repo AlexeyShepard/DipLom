@@ -20,21 +20,45 @@ namespace LomMobile
         {
             InitializeComponent();
 
-            /*var current = Connectivity.NetworkAccess;
+            StartCheckInternet();
 
-            if (current == NetworkAccess.Internet)
-            {
-                
-                InternetStatusLbl.Text = "Доступ к интернет";
-                InternetStatusLbl.TextColor = Color.Green;
-            }
-            else
-            {
-                InternetStatusLbl.Text = "Нету доступа в интернет";
-                InternetStatusLbl.TextColor = Color.Red;
-            }*/
+            StartCheckInternetStatus();
         }
 
+        private async void StartCheckInternet()
+        {
+            await InternetChecker.Start();
+        }
+
+        private async void StartCheckInternetStatus()
+        {
+            await Task.Run(() =>
+            {
+                while (true)
+                {
+                    Thread.Sleep(100);
+                    
+
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        if (!InternetChecker.IsInternetConnected && !InternetChecker.PageShowed)
+                        {
+                            Navigation.PushModalAsync(new NoInternetPage());
+                            InternetChecker.PageShowed = true;
+                            LoginBtn.IsEnabled = false;
+                            ToRegistrationBtn.IsEnabled = false;
+                        }
+                        else if (InternetChecker.IsInternetConnected && InternetChecker.PageShowed)
+                        {
+                            Navigation.PopModalAsync();
+                            InternetChecker.PageShowed = false;
+                            LoginBtn.IsEnabled = true;
+                            ToRegistrationBtn.IsEnabled = true;
+                        }
+                    });
+                }
+            });
+        }
         private bool IsValidate()
         {
             bool Password = true, Login = true;

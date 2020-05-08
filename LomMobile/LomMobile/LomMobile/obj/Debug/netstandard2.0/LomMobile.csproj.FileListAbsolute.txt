@@ -33,3 +33,4 @@ C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Debug\netstandard2.0\LomMob
 C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Debug\netstandard2.0\ref\LomMobile.dll
 C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Debug\netstandard2.0\LomMobile.pdb
 C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Debug\netstandard2.0\RegistrationPage.xaml.g.cs
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Debug\netstandard2.0\NoInternetPage.xaml.g.cs

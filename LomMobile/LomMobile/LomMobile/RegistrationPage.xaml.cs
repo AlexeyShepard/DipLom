@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -16,6 +17,25 @@ namespace LomMobile
         public RegistrationPage()
         {
             InitializeComponent();
+
+            StartCheckInternetStatus();
+        }
+
+        private async void StartCheckInternetStatus()
+        {
+            await Task.Run(() =>
+            {
+                while (true)
+                {
+                    Thread.Sleep(100);
+
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        if (!InternetChecker.IsInternetConnected && !InternetChecker.PageShowed) RegBtn.IsEnabled = false;
+                        else if (InternetChecker.IsInternetConnected && InternetChecker.PageShowed) RegBtn.IsEnabled = true;
+                    });
+                }
+            });
         }
 
         private async void RegBtn_Clicked(Object sender, EventArgs e)

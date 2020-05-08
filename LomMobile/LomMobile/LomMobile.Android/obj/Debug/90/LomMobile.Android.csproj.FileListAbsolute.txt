@@ -1176,3 +1176,4 @@ C:\Projects\DipLom\LomMobile\LomMobile\LomMobile.Android\obj\Debug\90\stamp\_Con
 C:\Projects\DipLom\LomMobile\LomMobile\LomMobile.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Projects\DipLom\LomMobile\LomMobile\LomMobile.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Projects\DipLom\LomMobile\LomMobile\LomMobile.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile.Android\obj\Debug\90\res\drawable\nointernet.png

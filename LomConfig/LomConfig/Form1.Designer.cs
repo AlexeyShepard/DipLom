@@ -244,9 +244,9 @@
             this.toolStripStatusLabel1,
             this.VersionYearStatus,
             this.SaveSettingStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1018);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 944);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1090, 32);
+            this.statusStrip1.Size = new System.Drawing.Size(1078, 32);
             this.statusStrip1.TabIndex = 19;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -344,7 +344,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1090, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1078, 33);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -354,7 +354,7 @@
             this.HelpMenuBtn,
             this.AboutMenuBtn});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(97, 30);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(97, 29);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // HelpMenuBtn
@@ -401,7 +401,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1090, 1050);
+            this.ClientSize = new System.Drawing.Size(1078, 976);
             this.Controls.Add(this.RESTAPITokenTbx);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.OrganizationTree);
@@ -433,9 +433,10 @@
             this.Controls.Add(this.UrlRestTbx);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(2200, 2200);
-            this.MinimumSize = new System.Drawing.Size(100, 100);
+            this.MinimumSize = new System.Drawing.Size(1100, 1032);
             this.Name = "MainForm";
             this.Text = "LomConfig";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

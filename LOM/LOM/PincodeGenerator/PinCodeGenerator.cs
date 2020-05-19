@@ -66,8 +66,11 @@ namespace LOM
                     HttpResponseMessage Response = await Client.SendAsync(Request);
 
                     Logger.Log(new InfoRecord("Генерация пин-кода для " + People.FirstName + " " + People.SurName));
+                    Console.WriteLine("Генерация пин-кода для " + People.FirstName + " " + People.SurName);
                 }
             }
+
+            Configuration.TaskComplete = true;
         }
 
         private static FormUrlEncodedContent GenerateJsonOfEventHandling(People People)

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading;
 using IniParser;
 using IniParser.Model;
 using IziLog;
@@ -33,6 +34,8 @@ namespace LOM
                 Command CurrentCommand = GetCommandObject(KeyString);
 
                 CurrentCommand.Run();
+
+                while (!Configuration.TaskComplete) Thread.Sleep(100);
 
                 Console.WriteLine("Нажмите любую клавишу...");
 

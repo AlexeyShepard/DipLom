@@ -24,3 +24,16 @@ C:\Projects\DipLom\LOM\LOM\obj\Debug\LOM.exe
 C:\Projects\DipLom\LOM\LOM\obj\Debug\LOM.pdb
 C:\Projects\DipLom\LOM\LOM\bin\Debug\IziLog.pdb
 C:\Projects\DipLom\LOM\LOM\obj\Debug\LOM.csproj.CoreCompileInputs.cache
+C:\Projects\LOM\LOM\bin\Debug\LOM.exe.config
+C:\Projects\LOM\LOM\bin\Debug\LOM.exe
+C:\Projects\LOM\LOM\bin\Debug\LOM.pdb
+C:\Projects\LOM\LOM\bin\Debug\INIFileParser.dll
+C:\Projects\LOM\LOM\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\LOM\LOM\bin\Debug\INIFileParser.xml
+C:\Projects\LOM\LOM\bin\Debug\IziLog.pdb
+C:\Projects\LOM\LOM\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\LOM\LOM\obj\Debug\LOM.csprojAssemblyReference.cache
+C:\Projects\LOM\LOM\obj\Debug\LOM.csproj.CoreCompileInputs.cache
+C:\Projects\LOM\LOM\obj\Debug\LOM.csproj.CopyComplete
+C:\Projects\LOM\LOM\obj\Debug\LOM.exe
+C:\Projects\LOM\LOM\obj\Debug\LOM.pdb

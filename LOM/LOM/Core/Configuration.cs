@@ -31,6 +31,8 @@ namespace LOM
 
         public static string ParentOrg = "1";
 
+        public static bool TaskComplete = false;
+
         public static void SetLogFileNewName()
         {
             DefaultDirectoryPathToLog = "C:\\ProgramData\\LOM\\Lom_" + DateTime.Now.ToString("yyyy-MM-dd") + ".log";

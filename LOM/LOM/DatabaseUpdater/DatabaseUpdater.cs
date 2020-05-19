@@ -75,6 +75,8 @@ namespace LOM
                 int PeopleId = await InsertNewPeople(Pin, Pin.id_People);
                 InsertNewCard(Pin, PeopleId);
             }
+
+            Configuration.TaskComplete = true;
         }
 
         private static async Task<int> InsertNewPeople(Pincode Pincode, int PeopleId)
@@ -86,21 +88,20 @@ namespace LOM
             ExecuteQuery(Command);
 
             Logger.Log(new InfoRecord("Вставлен People " + CurrentPeople.FirstName + " " + CurrentPeople.SurName));
+            Console.WriteLine("Вставлен People " + CurrentPeople.FirstName + " " + CurrentPeople.SurName);
 
             return GetPeopleId("LOM_" + Pincode.id_People);
         }
 
         private static void InsertNewCard(Pincode Pincode, int PeopleId)
         {
-            // Pincode.PinCode = ConvertPincode(Pincode.PinCode);
-
-
             OdbcCommand Command = new OdbcCommand("INSERT INTO CARD (ID_CARD,ID_DB,ID_PEP,ID_ACCESSNAME,TIMESTART,STATUS,\"ACTIVE\", NOTE) " +
             "VALUES('" + ConvertPincode(Pincode.PinCode) + "', 1, " + PeopleId + ", 1, '" + Pincode.DateTimeGen + "', 0, 1,'" + Pincode.PinCode + "'); ");
 
             ExecuteQuery(Command);
 
             Logger.Log(new InfoRecord("Вставлен Pin-code " + Pincode.PinCode));
+            Console.WriteLine("Вставлен Pin-code " + Pincode.PinCode);
         }
 
         private static async Task<People> SelectPeopleFromRest(int PeopleId)

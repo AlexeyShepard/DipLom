@@ -27,24 +27,29 @@ namespace LOM
                 string Mode = GetApplicationMode(args);
                 string KeyString = args[0].ToLower();
 
-                ExecuteApplication(KeyString);
-
-                string Name = Process.GetCurrentProcess().ProcessName;
-
-                Command CurrentCommand = GetCommandObject(KeyString);
-
-                CurrentCommand.Run();
-
-                while (!Configuration.TaskComplete) Thread.Sleep(100);
-
-                Console.WriteLine("Нажмите любую клавишу...");
-
-                Console.ReadKey();
+                ProcessKey(KeyString);
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }   
+        }
+
+        private static void ProcessKey(string KeyString)
+        {
+            ExecuteApplication(KeyString);
+
+            string Name = Process.GetCurrentProcess().ProcessName;
+
+            Command CurrentCommand = GetCommandObject(KeyString);
+
+            CurrentCommand.Run();
+
+            while (!Configuration.TaskComplete) Thread.Sleep(100);
+
+            Console.WriteLine("Нажмите любую клавишу...");
+
+            Console.ReadKey();
         }
 
         private static string GetApplicationMode(string[] args)
@@ -53,8 +58,11 @@ namespace LOM
             {
                 case 0:
                     {
-                        Console.WriteLine("/help - вызов справки\n/silent - запуск программы в штатном режиме\n/pin - генерация пин-кодв\n/load - Выгрузка базы данных\n/stop - остановка LOM");
-                        throw new Exception("Программа запущена без использования ключей, остановка программы");
+                        Console.WriteLine("Введите режим работы программы:\n/help - вызов справки\n/silent - запуск программы в штатном режиме\n/pin - генерация пин-кодв\n/load - Выгрузка базы данных\n/stop - остановка LOM");
+                        Console.Write("Выбор => ");
+                        string Mode = Console.ReadLine();
+                        string KeyString = Mode.ToLower();
+                        ProcessKey(KeyString);
                         break;
                     }
                 case 1:
@@ -84,7 +92,7 @@ namespace LOM
                 if (CommandObject.CommandName.Equals(Key)) return true;
             }
 
-            throw new Exception(Key + " - такого ключа не существует!");
+            throw new Exception("ERROR: Ошибка при вводе ключа");
         }
 
         private static void RunApplicationInCurrentMode(string Mode)

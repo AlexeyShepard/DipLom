@@ -17,6 +17,4 @@ class People extends Model
     * @var bool
     */
     public $timestamps = false;
-
-
 }

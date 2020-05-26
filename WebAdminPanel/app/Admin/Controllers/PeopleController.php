@@ -163,6 +163,8 @@ class PeopleController extends CustomAdminController
         $grid->option('show_actions', false);
         $grid->option('show_row_selector', false);
         if(!$enableCreation) $grid->disableCreation();
+
+        $grid->model()->where('id_Access', '!=', 2);
                
         $grid->column(trans('base.Access'))->display(function()
         {

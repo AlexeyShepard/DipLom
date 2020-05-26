@@ -28,6 +28,8 @@ class AccessListController extends CustomAdminController
         $grid->disableExport();
         $grid->disableFilter();
 
+        $grid->model()->where('id', '!=', 2);
+
         $grid->column('id', __('Id'));
         $grid->column('Access', __(trans('base.Access')));
         $grid->column('Comment', __(trans('base.Content')));

@@ -149,7 +149,7 @@ class PeopleController extends CustomAdminController
         $form->text('SurName', __(trans('base.SurName')))->rules('required|min:2');
         $form->text('FirstName', __(trans('base.FirstName')))->rules('required|min:2');
         $form->text('PatronymicName', __(trans('base.PatronymicName')));
-        $form->text('Login', __(trans('base.Login')))->rules('required|min:6');
+        $form->text('Login', __(trans('base.Login')))->rules('required|min:6')->creationRules(['required', "unique:Lom_People"]);
         $form->password('Password', __(trans('base.Password')))->rules('required|min:6');
 
         return $form;

@@ -14,6 +14,8 @@ namespace LomMobile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrationPage : ContentPage
     {
+        private static bool IsValidated;
+        
         public RegistrationPage()
         {
             InitializeComponent();
@@ -47,7 +49,8 @@ namespace LomMobile
             PasswordErrorLbl.Text = "";
             RepeatPasswordErrorLbl.Text = "";
 
-            bool IsValid = IsValidate();
+            IsValidated = IsValidate();
+            bool IsValid = IsValidated;
             bool IsRegistred = await IsRegistered();
 
             if (IsValid && IsRegistred) await Navigation.PopModalAsync();
@@ -122,6 +125,7 @@ namespace LomMobile
             }
             catch (Exception ex)
             {
+                if(IsValidated) LoginErrorLbl.Text = "Пользователь с таким логином существует";
                 return false;
             }
         }

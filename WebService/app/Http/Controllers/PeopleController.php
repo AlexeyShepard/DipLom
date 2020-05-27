@@ -28,6 +28,10 @@ class PeopleController extends BaseController
 
         try
         {
+            $validatedData = $request->validate([
+                'Login' => 'unique:Lom_People',
+            ]);
+            
             $people = People::create($input);
             return $this->sendResponse($people->toArray(), 'Success');
         }

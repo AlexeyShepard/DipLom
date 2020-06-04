@@ -1,0 +1,16 @@
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\bin\Release\netstandard2.0\LomMobile.deps.json
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\bin\Release\netstandard2.0\LomMobile.dll
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\bin\Release\netstandard2.0\ref\LomMobile.dll
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\bin\Release\netstandard2.0\LomMobile.pdb
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\App.xaml.g.cs
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\AuthorizationPage.xaml.g.cs
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\MainPage.xaml.g.cs
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\NoInternetPage.xaml.g.cs
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\RegistrationPage.xaml.g.cs
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\LomMobile.csproj.CoreCompileInputs.cache
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\LomMobile.AssemblyInfoInputs.cache
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\LomMobile.AssemblyInfo.cs
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\XamlC.stamp
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\LomMobile.dll
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\ref\LomMobile.dll
+C:\Projects\DipLom\LomMobile\LomMobile\LomMobile\obj\Release\netstandard2.0\LomMobile.pdb
